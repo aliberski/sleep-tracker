@@ -1,16 +1,15 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { Text, View } from 'react-native';
 
 import style from './style';
 import { IProps } from './types';
 
-const Component = (props: IProps) => {
-  console.log(props);
+const RegisterScreen = (props: IProps) => {
   return (
     <View style={style.container}>
-      <Text>Component</Text>
+      <Text>RegisterScreen</Text>
     </View>
   );
 };
 
-export default Component;
+export default RegisterScreen;
