@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LoginScreen renders correctly 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "flex-end",
+      "padding": 10,
+    }
+  }
+  testID="loginScreen"
+>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#6200EE",
+        "opacity": 1,
+        "paddingHorizontal": 10,
+        "paddingVertical": 15,
+        "width": "100%",
+      }
+    }
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": "Roboto-Bold",
+          "fontSize": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      Zaloguj się
+    </Text>
+  </View>
+</View>
+`;

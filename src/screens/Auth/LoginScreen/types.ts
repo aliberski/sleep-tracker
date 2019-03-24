@@ -1,7 +1,11 @@
 import { ViewStyle } from 'react-native';
-export interface IProps {
+import { INavigation } from 'constants/types';
+
+export interface IDispatchProps {
   testRequest: () => void;
 }
+
+export interface IProps extends INavigation, IDispatchProps {}
 
 export interface IStyle {
   container: ViewStyle;

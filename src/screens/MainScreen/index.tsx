@@ -1,5 +1,6 @@
 import React from 'react';
 import { Text, View } from 'react-native';
+import { connect } from 'react-redux';
 
 import style from './style';
 import { IProps } from './types';
@@ -12,4 +13,5 @@ const MainScreen = (props: IProps) => {
   );
 };
 
-export default MainScreen;
+export { MainScreen };
+export default connect()(MainScreen);

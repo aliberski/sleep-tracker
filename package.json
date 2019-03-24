@@ -10,8 +10,8 @@
     "test": "jest",
     "test:watch": "jest --watch",
     "test:coverage": "jest --coverage",
-    "e2e": "detox test",
-    "e2e:build": "detox build"
+    "e2e": "detox test -c ios.sim.debug",
+    "e2e:build": "detox build -c ios.sim.debug"
   },
   "dependencies": {
     "axios": "0.18.0",
@@ -19,6 +19,7 @@
     "react": "16.8.3",
     "react-native": "0.59.1",
     "react-native-gesture-handler": "https://github.com/kmagiera/react-native-gesture-handler.git",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "react-navigation": "3.5.1",
     "react-redux": "6.0.1",
     "redux": "4.0.1",
@@ -52,6 +53,12 @@
       "ios.sim.debug": {
         "binaryPath": "ios/build/sleepTracker/Build/Products/Debug-iphonesimulator/sleepTracker.app",
         "build": "xcodebuild -project ios/sleepTracker.xcodeproj -UseNewBuildSystem=NO -scheme sleepTracker -configuration Debug -sdk iphonesimulator -derivedDataPath ios/build",
+        "type": "ios.simulator",
+        "name": "iPhone X"
+      },
+      "ios.sim.release": {
+        "binaryPath": "ios/build/sleepTracker/Build/Products/Release-iphonesimulator/sleepTracker.app",
+        "build": "xcodebuild -project ios/sleepTracker.xcodeproj -UseNewBuildSystem=NO -scheme sleepTracker -configuration Release -sdk iphonesimulator -derivedDataPath ios/build",
         "type": "ios.simulator",
         "name": "iPhone X"
       }

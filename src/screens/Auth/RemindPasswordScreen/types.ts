@@ -1,5 +1,7 @@
 import { ViewStyle } from 'react-native';
-export interface IProps {}
+import { INavigation } from 'constants/types';
+
+export interface IProps extends INavigation {}
 
 export interface IStyle {
   container: ViewStyle;

@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 import { ActionTypes } from './actions';
-import { ITestState, Actions } from './types';
+import { ITestState, Actions, ITestStoreState } from './types';
 
 const initialState: ITestState = {
   testing: false,
 };
 
-const test = (state = initialState, action: Actions) => {
+const test = (state = initialState, action: Actions): ITestState => {
   switch (action.type) {
     case ActionTypes.TEST:
       return {
@@ -18,6 +18,6 @@ const test = (state = initialState, action: Actions) => {
   }
 };
 
-export default combineReducers({
+export default combineReducers<ITestStoreState>({
   test,
 });
