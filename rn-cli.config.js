@@ -5,4 +5,10 @@ module.exports = {
   getSourceExts() {
     return ['ts', 'tsx'];
   },
+  getBlacklistRE() {
+    return metroBundler.createBlacklist([
+      /test\/.*/,
+      /detox\/node_modules\/.*/,
+    ]);
+  },
 };

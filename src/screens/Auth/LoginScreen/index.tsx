@@ -1,9 +1,11 @@
 import React from 'react';
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
-import { testActions } from 'modules/Test/actions';
 
+import Button from 'components/Button';
+
+import { testActions } from 'modules/Test/actions';
 import style from './style';
 import { IProps } from './types';
 
@@ -11,9 +13,13 @@ const LoginScreen = (props: IProps) => {
   props.testRequest();
   return (
     <View style={style.container}>
-      <Text>LoginScreen</Text>
+      <Button onPress={() => {}} text='Zaloguj się' />
     </View>
   );
+};
+
+LoginScreen.navigationOptions = {
+  title: 'Logowanie',
 };
 
 const mapDispatchToProps = (dispatch: Dispatch<any>): IProps => ({

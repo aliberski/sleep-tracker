@@ -12,4 +12,8 @@ const RegisterScreen = (props: IProps) => {
   );
 };
 
+RegisterScreen.navigationOptions = {
+  title: 'Rejestracja',
+};
+
 export default RegisterScreen;

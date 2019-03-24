@@ -9,7 +9,7 @@ const AppNavigation = createStackNavigator(
     [routes.MAIN]: MainScreen,
   },
   {
-    navigationOptions: {},
+    headerMode: 'none',
   },
 );
 
