@@ -7,6 +7,7 @@ export interface IProps {
   label?: string;
   containerStyle?: any;
   inputProps?: any;
+  testID?: string;
 }
 
 type InputType = ViewStyle | TextStyle;

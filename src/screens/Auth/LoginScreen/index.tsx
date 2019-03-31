@@ -3,10 +3,11 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 import { Dispatch } from 'redux';
 
+import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
 import Button from 'components/Button';
 import Input from 'components/Input';
 
-import { idAuth } from 'constants/testIDs';
+import { auth } from 'constants/testIDs';
 import { testActions } from 'modules/Test/actions';
 import routes from 'constants/routes';
 import style from './style';
@@ -24,21 +25,27 @@ const LoginScreen = (props: IProps) => {
   return (
     <View
       style={style.container}
-      testID={idAuth.loginScreen}
+      testID={auth.loginScreen.id}
     >
       <View style={style.form}>
-        <Input
-          onChangeText={setLogin}
-          value={login}
-          label='Login'
-        />
-        <Input
-          onChangeText={setPassword}
-          value={password}
-          label='Password'
-        />
+        <KeyboardAwareWrapper>
+          <Input
+            testID={auth.loginScreen.login}
+            onChangeText={setLogin}
+            value={login}
+            label='Login'
+          />
+          <Input
+            testID={auth.loginScreen.password}
+            onChangeText={setPassword}
+            value={password}
+            inputProps={{ secureTextEntry: true }}
+            label='Hasło'
+          />
+        </KeyboardAwareWrapper>
       </View>
       <Button
+        testID={auth.loginScreen.submit}
         onPress={navigate.bind(null, routes.MAIN)} // TODO: handle login
         text='Zaloguj się'
       />

@@ -4,10 +4,14 @@ import { TouchableOpacity, Text } from 'react-native';
 import style from './style';
 import { IProps } from './types';
 
-const Button = (props: IProps) => {
-  const { onPress, text } = props;
+const Button: React.FC<IProps> = (props: IProps) => {
+  const { onPress, text, testID } = props;
   return (
-    <TouchableOpacity style={style.container} onPress={onPress}>
+    <TouchableOpacity
+      testID={testID}
+      style={style.container}
+      onPress={onPress}
+    >
       <Text style={style.text}>{text}</Text>
     </TouchableOpacity>
   );

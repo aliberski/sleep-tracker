@@ -5,7 +5,9 @@ import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view
 import { IProps } from './types';
 import style from './style';
 
-const KeyboardAwareWrapper = (props: IProps) => {
+const KeyboardAwareWrapper: React.FC<IProps> = (
+  props: IProps,
+) => {
   const {
     backgroundColor,
     padding,

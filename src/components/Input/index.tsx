@@ -10,7 +10,7 @@ import { COLOR } from 'constants/globalStyle';
 import style from './style';
 import { IProps } from './types';
 
-const Input = (props: IProps) => {
+const Input: React.FC<IProps> = (props: IProps) => {
   const {
     error,
     label,
@@ -18,6 +18,7 @@ const Input = (props: IProps) => {
     value,
     containerStyle,
     inputProps,
+    testID,
   } = props;
 
   const inputStyle = error
@@ -31,6 +32,7 @@ const Input = (props: IProps) => {
     <View style={containerStyle}>
       <Text style={style.label}>{label}</Text>
       <TextInput
+        testID={testID}
         onChangeText={onChangeText}
         value={value}
         style={inputStyle}
