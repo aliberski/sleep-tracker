@@ -12,7 +12,7 @@ exports[`Button renders correctly 1`] = `
   onStartShouldSetResponder={[Function]}
   style={
     Object {
-      "backgroundColor": "#6200EE",
+      "backgroundColor": "#6666EE",
       "opacity": 1,
       "paddingHorizontal": 10,
       "paddingVertical": 15,

@@ -4,14 +4,108 @@ exports[`LoginScreen renders correctly 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "flex-end",
       "padding": 10,
     }
   }
   testID="loginScreen"
 >
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#000000",
+            "fontFamily": "Roboto-Bold",
+            "fontSize": 13,
+            "paddingBottom": 5,
+          }
+        }
+      >
+        Login
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        onChangeText={[Function]}
+        rejectResponderTermination={true}
+        selectionColor="#6666EE"
+        style={
+          Object {
+            "borderColor": "#B4B4B4",
+            "borderWidth": 1,
+            "fontFamily": "Roboto-Regular",
+            "fontSize": 15,
+            "paddingHorizontal": 10,
+            "paddingVertical": 15,
+            "width": "100%",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+      <Text
+        style={
+          Object {
+            "color": "#B00020",
+            "fontFamily": "Roboto-Regular",
+            "fontSize": 13,
+            "paddingBottom": 5,
+            "paddingTop": 5,
+          }
+        }
+      />
+    </View>
+    <View>
+      <Text
+        style={
+          Object {
+            "color": "#000000",
+            "fontFamily": "Roboto-Bold",
+            "fontSize": 13,
+            "paddingBottom": 5,
+          }
+        }
+      >
+        Password
+      </Text>
+      <TextInput
+        allowFontScaling={true}
+        onChangeText={[Function]}
+        rejectResponderTermination={true}
+        selectionColor="#6666EE"
+        style={
+          Object {
+            "borderColor": "#B4B4B4",
+            "borderWidth": 1,
+            "fontFamily": "Roboto-Regular",
+            "fontSize": 15,
+            "paddingHorizontal": 10,
+            "paddingVertical": 15,
+            "width": "100%",
+          }
+        }
+        underlineColorAndroid="transparent"
+        value=""
+      />
+      <Text
+        style={
+          Object {
+            "color": "#B00020",
+            "fontFamily": "Roboto-Regular",
+            "fontSize": 13,
+            "paddingBottom": 5,
+            "paddingTop": 5,
+          }
+        }
+      />
+    </View>
+  </View>
   <View
     accessible={true}
     isTVSelectable={true}
@@ -23,7 +117,7 @@ exports[`LoginScreen renders correctly 1`] = `
     onStartShouldSetResponder={[Function]}
     style={
       Object {
-        "backgroundColor": "#6200EE",
+        "backgroundColor": "#6666EE",
         "opacity": 1,
         "paddingHorizontal": 10,
         "paddingVertical": 15,

@@ -7,7 +7,10 @@ describe('LoginScreen', () => {
   it('renders correctly', () => {
     const tree = renderer
       .create(
-        <LoginScreen navigation={navigationMock} testRequest={jest.fn()} />,
+        <LoginScreen
+          navigation={navigationMock}
+          testRequest={jest.fn()}
+        />,
       )
       .toJSON();
     expect(tree).toMatchSnapshot();
