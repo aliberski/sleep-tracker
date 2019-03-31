@@ -5,14 +5,19 @@ import style from './style';
 import { IProps } from './types';
 
 const Button: React.FC<IProps> = (props: IProps) => {
-  const { onPress, text, testID } = props;
+  const { onPress, text, testID, link } = props;
+  const containerStyle = link
+    ? style.containerLink
+    : style.container;
+  const textStyle = link ? style.textLink : style.text;
+
   return (
     <TouchableOpacity
       testID={testID}
-      style={style.container}
+      style={containerStyle}
       onPress={onPress}
     >
-      <Text style={style.text}>{text}</Text>
+      <Text style={textStyle}>{text}</Text>
     </TouchableOpacity>
   );
 };

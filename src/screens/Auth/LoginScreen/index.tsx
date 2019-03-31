@@ -23,29 +23,35 @@ const LoginScreen = (props: IProps) => {
     navigation: { navigate },
   } = props;
   return (
-    <View
-      style={style.container}
-      testID={auth.loginScreen.id}
-    >
+    <View style={style.container} testID={auth.login.id}>
       <View style={style.form}>
         <KeyboardAwareWrapper>
           <Input
-            testID={auth.loginScreen.login}
+            testID={auth.login.inputLogin}
             onChangeText={setLogin}
             value={login}
             label='Login'
           />
           <Input
-            testID={auth.loginScreen.password}
+            testID={auth.login.inputPassword}
             onChangeText={setPassword}
             value={password}
             inputProps={{ secureTextEntry: true }}
             label='Hasło'
           />
+          <Button
+            testID={auth.login.buttonRemind}
+            link
+            text='Przypomnij hasło'
+            onPress={navigate.bind(
+              null,
+              routes.REMIND_PASSWORD,
+            )}
+          />
         </KeyboardAwareWrapper>
       </View>
       <Button
-        testID={auth.loginScreen.submit}
+        testID={auth.login.buttonSubmit}
         onPress={navigate.bind(null, routes.MAIN)} // TODO: handle login
         text='Zaloguj się'
       />

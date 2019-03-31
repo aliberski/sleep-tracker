@@ -21,26 +21,23 @@ const RegisterScreen = (props: IProps) => {
   } = props;
 
   return (
-    <View
-      style={style.container}
-      testID={auth.registerScreen.id}
-    >
+    <View style={style.container} testID={auth.register.id}>
       <View style={style.form}>
         <KeyboardAwareWrapper>
           <Input
-            testID={auth.registerScreen.email}
+            testID={auth.register.inputEmail}
             onChangeText={setEmail}
             value={email}
             label='Email'
           />
           <Input
-            testID={auth.registerScreen.login}
+            testID={auth.register.inputLogin}
             onChangeText={setLogin}
             value={login}
             label='Login'
           />
           <Input
-            testID={auth.registerScreen.password}
+            testID={auth.register.inputPassword}
             onChangeText={setPassword}
             value={password}
             inputProps={{ secureTextEntry: true }}
@@ -49,7 +46,7 @@ const RegisterScreen = (props: IProps) => {
         </KeyboardAwareWrapper>
       </View>
       <Button
-        testID={auth.registerScreen.submit}
+        testID={auth.register.buttonSubmit}
         onPress={navigate.bind(null, routes.LOGIN)} // TODO: handle register
         text='Zaloguj się'
       />

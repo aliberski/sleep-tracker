@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Button renders correctly 1`] = `
+exports[`BackButton renders correctly 1`] = `
 <View
   accessible={true}
   isTVSelectable={true}
@@ -13,8 +13,8 @@ exports[`Button renders correctly 1`] = `
   style={
     Object {
       "opacity": 1,
-      "padding": 5,
-      "width": "100%",
+      "paddingHorizontal": 10,
+      "paddingVertical": 15,
     }
   }
 >
@@ -23,12 +23,11 @@ exports[`Button renders correctly 1`] = `
       Object {
         "color": "#000000",
         "fontFamily": "Roboto-Bold",
-        "fontSize": 13,
-        "textAlign": "center",
+        "fontSize": 15,
       }
     }
   >
-    123
+    &lt;   Wróć
   </Text>
 </View>
 `;

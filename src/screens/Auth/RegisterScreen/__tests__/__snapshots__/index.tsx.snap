@@ -4,15 +4,233 @@ exports[`RegisterScreen renders correctly 1`] = `
 <View
   style={
     Object {
-      "alignItems": "center",
       "flex": 1,
-      "justifyContent": "center",
+      "padding": 10,
     }
   }
-  testID="registerScreen"
+  testID="REGISTER_ID"
 >
-  <Text>
-    RegisterScreen
-  </Text>
+  <View
+    style={
+      Object {
+        "flex": 1,
+      }
+    }
+  >
+    <RCTScrollView
+      automaticallyAdjustContentInsets={false}
+      contentContainerStyle={
+        Object {
+          "flexGrow": 1,
+        }
+      }
+      contentInset={
+        Object {
+          "bottom": 0,
+        }
+      }
+      enableAutomaticScroll={true}
+      enableOnAndroid={true}
+      enableResetScrollToCoords={true}
+      extraHeight={75}
+      extraScrollHeight={0}
+      getScrollResponder={[Function]}
+      handleOnScroll={[Function]}
+      keyboardDismissMode="interactive"
+      keyboardOpeningTime={250}
+      keyboardShouldPersistTaps="handled"
+      keyboardSpace={0}
+      onScroll={[Function]}
+      resetKeyboardSpace={[Function]}
+      scrollEnabled={true}
+      scrollEventThrottle={1}
+      scrollForExtraHeightOnAndroid={[Function]}
+      scrollIntoView={[Function]}
+      scrollToEnd={[Function]}
+      scrollToFocusedInput={[Function]}
+      scrollToPosition={[Function]}
+      showsVerticalScrollIndicator={true}
+      style={
+        Object {
+          "backgroundColor": undefined,
+          "padding": undefined,
+        }
+      }
+      update={[Function]}
+      viewIsInsideTabBar={false}
+    >
+      <View>
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Roboto-Bold",
+                "fontSize": 13,
+                "paddingBottom": 5,
+              }
+            }
+          >
+            Email
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            onChangeText={[Function]}
+            rejectResponderTermination={true}
+            selectionColor="#6666EE"
+            style={
+              Object {
+                "borderColor": "#B4B4B4",
+                "borderWidth": 1,
+                "fontFamily": "Roboto-Regular",
+                "fontSize": 15,
+                "paddingHorizontal": 10,
+                "paddingVertical": 15,
+                "width": "100%",
+              }
+            }
+            testID="REGISTER_INPUT_EMAIL"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+          <Text
+            style={
+              Object {
+                "color": "#B00020",
+                "fontFamily": "Roboto-Regular",
+                "fontSize": 13,
+                "paddingBottom": 5,
+                "paddingTop": 5,
+              }
+            }
+          />
+        </View>
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Roboto-Bold",
+                "fontSize": 13,
+                "paddingBottom": 5,
+              }
+            }
+          >
+            Login
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            onChangeText={[Function]}
+            rejectResponderTermination={true}
+            selectionColor="#6666EE"
+            style={
+              Object {
+                "borderColor": "#B4B4B4",
+                "borderWidth": 1,
+                "fontFamily": "Roboto-Regular",
+                "fontSize": 15,
+                "paddingHorizontal": 10,
+                "paddingVertical": 15,
+                "width": "100%",
+              }
+            }
+            testID="REGISTER_INPUT_LOGIN"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+          <Text
+            style={
+              Object {
+                "color": "#B00020",
+                "fontFamily": "Roboto-Regular",
+                "fontSize": 13,
+                "paddingBottom": 5,
+                "paddingTop": 5,
+              }
+            }
+          />
+        </View>
+        <View>
+          <Text
+            style={
+              Object {
+                "color": "#000000",
+                "fontFamily": "Roboto-Bold",
+                "fontSize": 13,
+                "paddingBottom": 5,
+              }
+            }
+          >
+            Hasło
+          </Text>
+          <TextInput
+            allowFontScaling={true}
+            onChangeText={[Function]}
+            rejectResponderTermination={true}
+            secureTextEntry={true}
+            selectionColor="#6666EE"
+            style={
+              Object {
+                "borderColor": "#B4B4B4",
+                "borderWidth": 1,
+                "fontFamily": "Roboto-Regular",
+                "fontSize": 15,
+                "paddingHorizontal": 10,
+                "paddingVertical": 15,
+                "width": "100%",
+              }
+            }
+            testID="REGISTER_INPUT_PASSWORD"
+            underlineColorAndroid="transparent"
+            value=""
+          />
+          <Text
+            style={
+              Object {
+                "color": "#B00020",
+                "fontFamily": "Roboto-Regular",
+                "fontSize": 13,
+                "paddingBottom": 5,
+                "paddingTop": 5,
+              }
+            }
+          />
+        </View>
+      </View>
+    </RCTScrollView>
+  </View>
+  <View
+    accessible={true}
+    isTVSelectable={true}
+    onResponderGrant={[Function]}
+    onResponderMove={[Function]}
+    onResponderRelease={[Function]}
+    onResponderTerminate={[Function]}
+    onResponderTerminationRequest={[Function]}
+    onStartShouldSetResponder={[Function]}
+    style={
+      Object {
+        "backgroundColor": "#6666EE",
+        "opacity": 1,
+        "paddingHorizontal": 10,
+        "paddingVertical": 15,
+        "width": "100%",
+      }
+    }
+    testID="REGISTER_BUTTON_SUBMIT"
+  >
+    <Text
+      style={
+        Object {
+          "color": "#FFFFFF",
+          "fontFamily": "Roboto-Bold",
+          "fontSize": 15,
+          "textAlign": "center",
+        }
+      }
+    >
+      Zaloguj się
+    </Text>
+  </View>
 </View>
 `;

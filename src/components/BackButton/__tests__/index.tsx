@@ -1,13 +1,13 @@
 import 'react-native';
 import React from 'react';
 
-import { Button } from '../index';
+import { navigationMock } from 'constants/testMocks';
+import BackButton from '../index';
 import renderer from 'react-test-renderer';
 
-describe('Button', () => {
-  const mockFunction = jest.fn();
+describe('BackButton', () => {
   const button = renderer.create(
-    <Button text='123' link onPress={mockFunction} />,
+    <BackButton navigation={navigationMock} />,
   );
 
   it('renders correctly', () => {
