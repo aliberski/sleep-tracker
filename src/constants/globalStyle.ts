@@ -1,3 +1,5 @@
+import { BackArrow } from 'components/Icons';
+
 export const COLOR = {
   primary: '#6666EE',
   primary_variant: '#3700B3',
@@ -37,10 +39,16 @@ export const FONT_SIZE = {
   big: 20,
 };
 
+export const ICON_SIZE = {
+  primary: 20,
+  small: 15,
+  big: 25,
+};
+
 export const tabBarOptions = {
   labelStyle: {
     fontFamily: FONT.primary,
-    fontSize: FONT_SIZE.primary,
+    fontSize: FONT_SIZE.small,
     color: COLOR.font_light,
   },
   indicatorStyle: {
@@ -49,4 +57,14 @@ export const tabBarOptions = {
   style: {
     backgroundColor: COLOR.primary,
   },
+};
+
+export const standardHeaderOptions = {
+  headerTintColor: COLOR.primary,
+  headerTitleStyle: {
+    fontSize: FONT_SIZE.primary,
+    fontFamily: FONT.primary,
+    color: COLOR.font,
+  },
+  headerBackImage: BackArrow,
 };

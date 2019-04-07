@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import SafeView from 'components/SafeView';
 
 import getStoreInstance from 'store/createStore';
-import AppNavigation from 'navigation/AppNavigation';
+import AppNavigator from 'navigation/AppNavigator';
 import rootSaga from 'saga';
 
 const store = getStoreInstance();
@@ -14,9 +14,7 @@ export default class App extends React.Component {
   public render() {
     return (
       <Provider store={store}>
-        <SafeView>
-          <AppNavigation />
-        </SafeView>
+        <AppNavigator />
       </Provider>
     );
   }

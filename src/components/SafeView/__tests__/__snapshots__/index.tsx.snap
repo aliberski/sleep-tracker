@@ -6,7 +6,7 @@ exports[`SafeView renders correctly 1`] = `
   pointerEvents="box-none"
   style={
     Object {
-      "backgroundColor": "white",
+      "backgroundColor": "#FFFFFF",
       "flex": 1,
       "paddingBottom": 0,
       "paddingLeft": 0,

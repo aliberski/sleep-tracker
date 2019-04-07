@@ -1,8 +1,10 @@
 module.exports = {
   preset: 'react-native',
-  moduleFileExtensions: ['ts', 'tsx', 'js'],
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'svg'],
   transform: {
     '\\.(ts|tsx)$': '<rootDir>/node_modules/babel-jest',
+    '\\.(svg)$':
+      '<rootDir>/node_modules/jest-svg-transformer',
   },
   testMatch: ['**/__tests__/**/*.(js|ts|tsx)'],
   moduleDirectories: ['node_modules', 'src'],
@@ -12,7 +14,9 @@ module.exports = {
     '<rootDir>/e2e/',
   ],
   cacheDirectory: '.jest/cache',
-  transformIgnorePatterns: ['node_modules/(?!react-native|react-navigation)/'],
+  transformIgnorePatterns: [
+    'node_modules/(?!react-native|react-navigation)/',
+  ],
   coverageDirectory: '.jest/coverage',
   collectCoverageFrom: [
     'src/**/*.{ts,tsx}',
@@ -27,5 +31,6 @@ module.exports = {
     '!src/saga/**/*',
     '!src/store/**/*',
     '!src/modules/Test/*',
+    '!src/components/Icons/*',
   ],
 };

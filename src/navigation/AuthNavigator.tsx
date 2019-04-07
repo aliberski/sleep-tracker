@@ -6,7 +6,13 @@ import LoginScreen from 'screens/Auth/LoginScreen';
 import RegisterScreen from 'screens/Auth/RegisterScreen';
 import RemindPasswordScreen from 'screens/Auth/RemindPasswordScreen';
 
-import { tabBarOptions } from 'constants/globalStyle';
+import { BackArrow } from 'components/Icons';
+
+import {
+  tabBarOptions,
+  standardHeaderOptions,
+} from 'constants/globalStyle';
+import texts from 'constants/translations';
 import routes from 'constants/routes';
 
 const AuthTabNavigator = createMaterialTopTabNavigator(
@@ -24,7 +30,12 @@ export default createStackNavigator(
     AuthTabs: AuthTabNavigator,
     [routes.REMIND_PASSWORD]: RemindPasswordScreen,
   },
+  // @ts-ignore
   {
-    headerMode: 'none',
+    headerBackTitleVisible: false,
+    defaultNavigationOptions: {
+      ...standardHeaderOptions,
+      title: texts.appName,
+    },
   },
 );

@@ -1,0 +1,28 @@
+# Uncomment the next line to define a global platform for your project
+# platform :ios, '9.0'
+react_native_path = '../node_modules/react-native'
+
+target 'sleepTracker' do
+
+  # Pods for sleepTracker
+  
+  pod 'React', :path => react_native_path, :subspecs => [
+    'Core',
+    'CxxBridge',
+    'DevSupport',
+    'RCTText',
+    'RCTNetwork',
+    'RCTWebSocket', 
+    'RCTAnimation', 
+    'RCTImage', 
+  ]
+  
+  pod 'yoga', :path => react_native_path + '/ReactCommon/yoga'
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
+   # Third party deps podspec link
+   pod 'DoubleConversion', :podspec => react_native_path + '/third-party-podspecs/DoubleConversion.podspec'
+   pod 'glog', :podspec => react_native_path + '/third-party-podspecs/glog.podspec'
+   pod 'Folly', :podspec => react_native_path + '/third-party-podspecs/Folly.podspec'
+end
+

@@ -6,7 +6,9 @@ import { Dispatch } from 'redux';
 import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
 import Button from 'components/Button';
 import Input from 'components/Input';
+import SafeView from 'components/SafeView';
 
+import texts from 'constants/translations';
 import { auth } from 'constants/testIDs';
 import { testActions } from 'modules/Test/actions';
 import routes from 'constants/routes';
@@ -23,44 +25,46 @@ const LoginScreen = (props: IProps) => {
     navigation: { navigate },
   } = props;
   return (
-    <View style={style.container} testID={auth.login.id}>
-      <View style={style.form}>
-        <KeyboardAwareWrapper>
-          <Input
-            testID={auth.login.inputLogin}
-            onChangeText={setLogin}
-            value={login}
-            label='Login'
-          />
-          <Input
-            testID={auth.login.inputPassword}
-            onChangeText={setPassword}
-            value={password}
-            inputProps={{ secureTextEntry: true }}
-            label='Hasło'
-          />
-          <Button
-            testID={auth.login.buttonRemind}
-            link
-            text='Przypomnij hasło'
-            onPress={navigate.bind(
-              null,
-              routes.REMIND_PASSWORD,
-            )}
-          />
-        </KeyboardAwareWrapper>
+    <SafeView>
+      <View style={style.container} testID={auth.login.id}>
+        <View style={style.form}>
+          <KeyboardAwareWrapper>
+            <Input
+              testID={auth.login.inputLogin}
+              onChangeText={setLogin}
+              value={login}
+              label={texts.loginInputLogin}
+            />
+            <Input
+              testID={auth.login.inputPassword}
+              onChangeText={setPassword}
+              value={password}
+              inputProps={{ secureTextEntry: true }}
+              label={texts.loginInputPassword}
+            />
+            <Button
+              testID={auth.login.buttonRemind}
+              link
+              text={texts.loginButtonRemind}
+              onPress={navigate.bind(
+                null,
+                routes.REMIND_PASSWORD,
+              )}
+            />
+          </KeyboardAwareWrapper>
+        </View>
+        <Button
+          testID={auth.login.buttonSubmit}
+          onPress={navigate.bind(null, routes.MAIN)} // TODO: handle login
+          text={texts.loginButtonSubmit}
+        />
       </View>
-      <Button
-        testID={auth.login.buttonSubmit}
-        onPress={navigate.bind(null, routes.MAIN)} // TODO: handle login
-        text='Zaloguj się'
-      />
-    </View>
+    </SafeView>
   );
 };
 
 LoginScreen.navigationOptions = {
-  title: 'Logowanie',
+  title: texts.loginTitle,
 };
 
 /* istanbul ignore next */

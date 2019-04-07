@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
 import Button from 'components/Button';
 import Input from 'components/Input';
+import SafeView from 'components/SafeView';
 
+import texts from 'constants/translations';
 import routes from 'constants/routes';
 import { auth } from 'constants/testIDs';
 import style from './style';
@@ -21,41 +23,46 @@ const RegisterScreen = (props: IProps) => {
   } = props;
 
   return (
-    <View style={style.container} testID={auth.register.id}>
-      <View style={style.form}>
-        <KeyboardAwareWrapper>
-          <Input
-            testID={auth.register.inputEmail}
-            onChangeText={setEmail}
-            value={email}
-            label='Email'
-          />
-          <Input
-            testID={auth.register.inputLogin}
-            onChangeText={setLogin}
-            value={login}
-            label='Login'
-          />
-          <Input
-            testID={auth.register.inputPassword}
-            onChangeText={setPassword}
-            value={password}
-            inputProps={{ secureTextEntry: true }}
-            label='Hasło'
-          />
-        </KeyboardAwareWrapper>
+    <SafeView>
+      <View
+        style={style.container}
+        testID={auth.register.id}
+      >
+        <View style={style.form}>
+          <KeyboardAwareWrapper>
+            <Input
+              testID={auth.register.inputEmail}
+              onChangeText={setEmail}
+              value={email}
+              label={texts.registerInputEmail}
+            />
+            <Input
+              testID={auth.register.inputLogin}
+              onChangeText={setLogin}
+              value={login}
+              label={texts.registerInputLogin}
+            />
+            <Input
+              testID={auth.register.inputPassword}
+              onChangeText={setPassword}
+              value={password}
+              inputProps={{ secureTextEntry: true }}
+              label={texts.registerInputPassword}
+            />
+          </KeyboardAwareWrapper>
+        </View>
+        <Button
+          testID={auth.register.buttonSubmit}
+          onPress={navigate.bind(null, routes.LOGIN)} // TODO: handle register
+          text={texts.registerButtonSubmit}
+        />
       </View>
-      <Button
-        testID={auth.register.buttonSubmit}
-        onPress={navigate.bind(null, routes.LOGIN)} // TODO: handle register
-        text='Zaloguj się'
-      />
-    </View>
+    </SafeView>
   );
 };
 
 RegisterScreen.navigationOptions = {
-  title: 'Rejestracja',
+  title: texts.registerTitle,
 };
 
 export { RegisterScreen };

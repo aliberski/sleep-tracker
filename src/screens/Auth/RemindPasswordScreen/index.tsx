@@ -5,8 +5,9 @@ import { connect } from 'react-redux';
 import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
 import Input from 'components/Input';
 import Button from 'components/Button';
-import BackButton from 'components/BackButton';
+import SafeView from 'components/SafeView';
 
+import texts from 'constants/translations';
 import routes from 'constants/routes';
 import { auth } from 'constants/testIDs';
 import style from './style';
@@ -14,17 +15,10 @@ import { IProps } from './types';
 
 const RemindPasswordScreen = (props: IProps) => {
   const [email, setEmail] = useState('');
-  // useEffect(() => {
-  //   props.testRequest();
-  // }, []);
   const { navigation } = props;
   const { navigate } = navigation;
   return (
-    <>
-      <BackButton
-        navigation={navigation}
-        testID={auth.remindPassword.buttonBack}
-      />
+    <SafeView>
       <View
         style={style.container}
         testID={auth.remindPassword.id}
@@ -35,18 +29,22 @@ const RemindPasswordScreen = (props: IProps) => {
               testID={auth.remindPassword.inputEmail}
               onChangeText={setEmail}
               value={email}
-              label='Email'
+              label={texts.remindInputEmail}
             />
           </KeyboardAwareWrapper>
         </View>
         <Button
           testID={auth.remindPassword.buttonSubmit}
           onPress={navigate.bind(null, routes.LOGIN)} // TODO: handle submit
-          text='Przypomnij hasło'
+          text={texts.remindButtonSubmit}
         />
       </View>
-    </>
+    </SafeView>
   );
+};
+
+RemindPasswordScreen.navigationOptions = {
+  title: texts.remindTitle,
 };
 
 export { RemindPasswordScreen };
