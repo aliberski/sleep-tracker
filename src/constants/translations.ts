@@ -21,4 +21,16 @@ export default {
   remindTitle: 'PRZYPOMNIJ HASŁO',
   remindInputEmail: 'Email',
   remindButtonSubmit: 'Przypomnij hasło',
+
+  // Drawer
+  drawerLinkMain: 'Strona główna',
+  drawerLinkSettings: 'Ustawienia konta',
+  drawerLinkLogout: 'Wyloguj się',
+
+  // Settings
+  settingsTitle: 'Ustawienia konta',
+  settingsInputEmail: 'Email',
+  settingsInputLogin: 'Login',
+  settingsInputPassword: 'Hasło',
+  settingsButtonSubmit: 'Zapisz',
 };

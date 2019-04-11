@@ -24,5 +24,18 @@ export const auth = {
 export const app = {
   main: {
     id: 'MAIN_ID',
-  }
+  },
+  drawer: {
+    id: 'DRAWER_ID',
+    linkMain: 'DRAWER_LINK_MAIN',
+    linkSettings: 'DRAWER_LINK_SETTINGS',
+    linkLogout: 'DRAWER_LINK_LOGOUT',
+  },
+  settings: {
+    id: 'SETTINGS_ID',
+    inputEmail: 'SETTINGS_INPUT_EMAIL',
+    inputLogin: 'SETTINGS_INPUT_LOGIN',
+    inputPassword: 'SETTINGS_INPUT_PASSWORD',
+    buttonSubmit: 'SETTINGS_BUTTON_SUBMIT',
+  },
 };

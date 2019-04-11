@@ -1,3 +1,4 @@
+import { Dimensions, StyleSheet } from 'react-native';
 import { BackArrow } from 'components/Icons';
 
 export const COLOR = {
@@ -23,6 +24,7 @@ export const PADDING = {
 export const BORDER = {
   primary: 1,
   small: 0.5,
+  hair: StyleSheet.hairlineWidth,
 };
 
 export const FONT = {
@@ -44,6 +46,9 @@ export const ICON_SIZE = {
   small: 15,
   big: 25,
 };
+
+export const WINDOW_WIDTH = Dimensions.get('window').width;
+export const DRAWER_WIDTH = WINDOW_WIDTH * 0.7;
 
 export const tabBarOptions = {
   labelStyle: {

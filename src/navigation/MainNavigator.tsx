@@ -1,25 +1,25 @@
 import React from 'react';
-import { Dimensions } from 'react-native';
 import {
   createStackNavigator,
   createDrawerNavigator,
 } from 'react-navigation';
 
 import MainScreen from 'screens/MainScreen';
+import { SettingsScreen } from 'screens/SettingsScreen';
+import Drawer from 'components/Drawer';
+import HamburgerMenu from 'components/HamburgerMenu';
 
 import routes from 'constants/routes';
 import texts from 'constants/translations';
 import {
-  COLOR,
   standardHeaderOptions,
+  DRAWER_WIDTH,
 } from 'constants/globalStyle';
-import HamburgerMenu from 'components/HamburgerMenu';
 
 const MainNavigator = createStackNavigator(
   {
-    [routes.MAIN]: {
-      screen: MainScreen,
-    },
+    [routes.MAIN]: MainScreen,
+    [routes.SETTINGS]: SettingsScreen,
   },
   // @ts-ignore
   {
@@ -36,10 +36,11 @@ export default createDrawerNavigator(
   {
     app: MainNavigator,
   },
+  // @ts-ignore
   {
-    drawerBackgroundColor: COLOR.primary,
-    drawerWidth: Dimensions.get('window').width,
+    drawerBackgroundColor: 'transparent',
+    drawerWidth: DRAWER_WIDTH,
     drawerPosition: 'right',
-    // contentComponent: Drawer,
+    contentComponent: Drawer,
   },
 );

@@ -4,8 +4,9 @@ enum routes {
   REGISTER = 'REGISTER',
   REMIND_PASSWORD = 'REMIND_PASSWORD',
 
-  // Main
+  // App
   MAIN = 'MAIN',
+  SETTINGS = 'SETTINGS',
 }
 
 export default routes;
