@@ -33,4 +33,9 @@ export default {
   settingsInputLogin: 'Login',
   settingsInputPassword: 'Hasło',
   settingsButtonSubmit: 'Zapisz',
+
+  // Main
+  mainTitle: 'Wybrany dzień: ',
+  mainButtonSurvey: 'Wypełnij ankietę',
+  mainButtonStatistics: 'Zobacz statystyki',
 };

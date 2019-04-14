@@ -1,5 +1,9 @@
 import React, { memo } from 'react';
-import { TouchableOpacity, Text } from 'react-native';
+import {
+  TouchableOpacity,
+  Text,
+  StyleSheet,
+} from 'react-native';
 
 import style from './style';
 import { IProps } from './types';
@@ -10,11 +14,14 @@ const Button: React.FC<IProps> = (props: IProps) => {
     ? style.containerLink
     : style.container;
   const textStyle = link ? style.textLink : style.text;
-
+  const buttonStyle = StyleSheet.flatten([
+    containerStyle,
+    props.style,
+  ]);
   return (
     <TouchableOpacity
       testID={testID}
-      style={containerStyle}
+      style={buttonStyle}
       onPress={onPress}
     >
       <Text style={textStyle}>{text}</Text>

@@ -24,6 +24,8 @@ export const auth = {
 export const app = {
   main: {
     id: 'MAIN_ID',
+    buttonSurvey: 'MAIN_BUTTON_SURVEY',
+    buttonStatistics: 'MAIN_BUTTON_STATISTICS',
   },
   drawer: {
     id: 'DRAWER_ID',

@@ -5,6 +5,7 @@ export interface IProps {
   onPress: () => void;
   testID?: string;
   link?: boolean;
+  style?: ViewStyle;
 }
 
 export interface IStyle {

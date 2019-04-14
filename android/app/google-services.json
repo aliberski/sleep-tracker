@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1025346331680",
+    "firebase_url": "https://sleeptracker-7da12.firebaseio.com",
+    "project_id": "sleeptracker-7da12",
+    "storage_bucket": "sleeptracker-7da12.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1025346331680:android:1092a42cd0a1c23f",
+        "android_client_info": {
+          "package_name": "com.sleeptracker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1025346331680-32k1nvpgam4nvc319rqrq5s1s4rqn5tg.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD7G3vWvesXp1awOjPfGmhir_97Aw5HjRA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1025346331680-32k1nvpgam4nvc319rqrq5s1s4rqn5tg.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1025346331680-81l66pmg9tn48gjhj5v74qa23at21h6j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.sleeptracker"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
