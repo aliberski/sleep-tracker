@@ -7,6 +7,9 @@ enum routes {
   // App
   MAIN = 'MAIN',
   SETTINGS = 'SETTINGS',
+  ABOUT = 'ABOUT',
+  SURVEY = 'SURVEY',
+  STATISTICS = 'STATISTICS',
 }
 
 export default routes;

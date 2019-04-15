@@ -5,7 +5,11 @@ import {
 } from 'react-navigation';
 
 import MainScreen from 'screens/MainScreen';
-import { SettingsScreen } from 'screens/SettingsScreen';
+import SettingsScreen from 'screens/SettingsScreen';
+import AboutScreen from 'screens/AboutScreen';
+import SurveyScreen from 'screens/SurveyScreen';
+import StatisticsScreen from 'screens/StatisticsScreen';
+
 import Drawer from 'components/Drawer';
 import HamburgerMenu from 'components/HamburgerMenu';
 
@@ -20,13 +24,16 @@ const MainNavigator = createStackNavigator(
   {
     [routes.MAIN]: MainScreen,
     [routes.SETTINGS]: SettingsScreen,
+    [routes.ABOUT]: AboutScreen,
+    [routes.SURVEY]: SurveyScreen,
+    [routes.STATISTICS]: StatisticsScreen,
   },
   // @ts-ignore
   {
     headerBackTitleVisible: false,
     defaultNavigationOptions: {
       ...standardHeaderOptions,
-      title: texts.appName,
+      title: texts.appName.toUpperCase(),
       headerRight: <HamburgerMenu />,
     },
   },

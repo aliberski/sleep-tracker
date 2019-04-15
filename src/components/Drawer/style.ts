@@ -12,7 +12,6 @@ export default StyleSheet.create<IStyle>({
   container: {
     flex: 1,
     backgroundColor: COLOR.primary,
-    paddingTop: 80,
   },
   navItemText: {
     color: COLOR.font_light,
@@ -23,5 +22,9 @@ export default StyleSheet.create<IStyle>({
   navItem: {
     borderBottomWidth: BORDER.hair,
     borderBottomColor: COLOR.background,
+  },
+  close: {
+    alignSelf: 'flex-end',
+    padding: PADDING.primary,
   },
 });

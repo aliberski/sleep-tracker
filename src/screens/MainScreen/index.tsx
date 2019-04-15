@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 
 import Calendar from 'components/Calendar';
 
+import routes from 'constants/routes';
 import texts from 'constants/translations';
 import { app } from 'constants/testIDs';
 import { getTodaysDate } from 'helpers';
@@ -16,10 +17,22 @@ class MainScreen extends React.Component<IProps, IState> {
     selectedDay: getTodaysDate(),
   };
 
+  public onDaySelect = (selectedDay: string) => {
+    this.setState({ selectedDay });
+  };
+
+  public onSurveyButtonPress = () => {
+    this.props.navigation.navigate(routes.SURVEY);
+  };
+
+  public onStatisticsButtonPress = () => {
+    this.props.navigation.navigate(routes.STATISTICS);
+  };
+
   public render() {
     return (
       <View style={style.container} testID={app.main.id}>
-        <Calendar onSelect={this.handleDaySelect} />
+        <Calendar onSelect={this.onDaySelect} />
         <View style={style.content}>
           {this.renderTitle()}
           {this.renderButtons()}
@@ -44,19 +57,15 @@ class MainScreen extends React.Component<IProps, IState> {
           testID={app.main.buttonSurvey}
           style={style.buttonSurvey}
           text={texts.mainButtonSurvey}
-          onPress={() => {}}
+          onPress={this.onSurveyButtonPress}
         />
         <Button
           testID={app.main.buttonStatistics}
           text={texts.mainButtonStatistics}
-          onPress={() => {}}
+          onPress={this.onStatisticsButtonPress}
         />
       </View>
     );
-  };
-
-  private handleDaySelect = (selectedDay: string) => {
-    this.setState({ selectedDay });
   };
 }
 

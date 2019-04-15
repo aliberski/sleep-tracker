@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from 'react-native';
-import { BackArrow } from 'components/Icons';
+import { IconBackArrow } from 'components/Icons';
 
 export const COLOR = {
   primary: '#6666EE',
@@ -19,6 +19,7 @@ export const PADDING = {
   small: 5,
   medium: 15,
   big: 20,
+  large: 40,
 };
 
 export const BORDER = {
@@ -71,5 +72,5 @@ export const standardHeaderOptions = {
     fontFamily: FONT.primary,
     color: COLOR.font,
   },
-  headerBackImage: BackArrow,
+  headerBackImage: IconBackArrow,
 };

@@ -2,6 +2,10 @@ import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
+import { IconClose } from 'components/Icons';
+import SafeView from 'components/SafeView';
+
+import { COLOR } from 'constants/globalStyle';
 import texts from 'constants/translations';
 import routes from 'constants/routes';
 import { app } from 'constants/testIDs';
@@ -25,6 +29,11 @@ class Drawer extends React.Component<IProps> {
         onPress: () => navigate(routes.SETTINGS),
       },
       {
+        testID: app.drawer.linkAbout,
+        text: texts.drawerLinkAbout,
+        onPress: () => navigate(routes.ABOUT),
+      },
+      {
         testID: app.drawer.linkLogout,
         text: texts.drawerLinkLogout,
         onPress: () => {},
@@ -34,11 +43,27 @@ class Drawer extends React.Component<IProps> {
 
   public render() {
     return (
-      <View style={style.container} testID={app.drawer.id}>
-        {this.renderNavItems()}
-      </View>
+      <SafeView color={COLOR.primary}>
+        <View
+          style={style.container}
+          testID={app.drawer.id}
+        >
+          {this.renderCloseButton()}
+          {this.renderNavItems()}
+        </View>
+      </SafeView>
     );
   }
+
+  private renderCloseButton = () => (
+    <TouchableOpacity
+      onPress={() => this.props.navigation.toggleDrawer()}
+      style={style.close}
+      testID={app.drawer.buttonClose}
+    >
+      <IconClose />
+    </TouchableOpacity>
+  );
 
   private renderNavItems = () => {
     return this.navItems.map(

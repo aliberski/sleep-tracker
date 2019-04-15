@@ -7,7 +7,7 @@ import MainNavigator from './MainNavigator';
 
 const AppNavigator = createStackNavigator(
   {
-    // Auth: AuthNavigator,
+    Auth: AuthNavigator,
     Main: MainNavigator,
   },
   {

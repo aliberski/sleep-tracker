@@ -1,14 +1,14 @@
 import React from 'react';
-import SVGMenu from 'images/icons/menu.svg';
+import SVGSleep from 'images/icons/sleep.svg';
 import { ICON_SIZE } from 'constants/globalStyle';
 
 interface IProps {
   size?: number;
 }
 
-const Menu = (props: IProps) => {
+const Sleep = (props: IProps) => {
   const size = props.size || ICON_SIZE.primary;
-  return <SVGMenu width={size} height={size} />;
+  return <SVGSleep width={size} height={size} />;
 };
 
-export { Menu };
+export { Sleep };

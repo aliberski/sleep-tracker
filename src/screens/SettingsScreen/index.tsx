@@ -57,7 +57,7 @@ const SettingsScreen = (props: IProps) => {
 };
 
 SettingsScreen.navigationOptions = {
-  title: texts.settingsTitle,
+  title: texts.settingsTitle.toUpperCase(),
 };
 
 export { SettingsScreen };

@@ -3,6 +3,7 @@ import { ViewStyle } from 'react-native';
 
 export interface IProps {
   children: ReactNode;
+  color?: string;
 }
 
 export interface IStyle {

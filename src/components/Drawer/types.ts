@@ -7,6 +7,7 @@ export interface IStyle {
   container: ViewStyle;
   navItem: ViewStyle;
   navItemText: TextStyle;
+  close: ViewStyle;
 }
 
 export interface INavItem {

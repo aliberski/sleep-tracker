@@ -44,7 +44,7 @@ const RemindPasswordScreen = (props: IProps) => {
 };
 
 RemindPasswordScreen.navigationOptions = {
-  title: texts.remindTitle,
+  title: texts.remindTitle.toUpperCase(),
 };
 
 export { RemindPasswordScreen };

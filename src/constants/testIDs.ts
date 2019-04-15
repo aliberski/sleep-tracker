@@ -31,7 +31,9 @@ export const app = {
     id: 'DRAWER_ID',
     linkMain: 'DRAWER_LINK_MAIN',
     linkSettings: 'DRAWER_LINK_SETTINGS',
+    linkAbout: 'DRAWER_LINK_ABOUT',
     linkLogout: 'DRAWER_LINK_LOGOUT',
+    buttonClose: 'DRAWER_BUTTON_CLOSE',
   },
   settings: {
     id: 'SETTINGS_ID',
@@ -39,5 +41,14 @@ export const app = {
     inputLogin: 'SETTINGS_INPUT_LOGIN',
     inputPassword: 'SETTINGS_INPUT_PASSWORD',
     buttonSubmit: 'SETTINGS_BUTTON_SUBMIT',
+  },
+  about: {
+    id: 'ABOUT_ID',
+  },
+  survey: {
+    id: 'SURVEY_ID',
+  },
+  statistics: {
+    id: 'STATISTICS_ID',
   },
 };

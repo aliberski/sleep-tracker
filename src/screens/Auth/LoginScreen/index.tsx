@@ -64,7 +64,7 @@ const LoginScreen = (props: IProps) => {
 };
 
 LoginScreen.navigationOptions = {
-  title: texts.loginTitle,
+  title: texts.loginTitle.toUpperCase(),
 };
 
 /* istanbul ignore next */

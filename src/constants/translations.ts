@@ -1,6 +1,6 @@
 export default {
   // common
-  appName: 'SLEEP TRACKER',
+  appName: 'Sleep tracker',
   back: 'Wróć',
 
   // LoginScreen
@@ -25,6 +25,7 @@ export default {
   // Drawer
   drawerLinkMain: 'Strona główna',
   drawerLinkSettings: 'Ustawienia konta',
+  drawerLinkAbout: 'O aplikacji',
   drawerLinkLogout: 'Wyloguj się',
 
   // Settings
@@ -38,4 +39,13 @@ export default {
   mainTitle: 'Wybrany dzień: ',
   mainButtonSurvey: 'Wypełnij ankietę',
   mainButtonStatistics: 'Zobacz statystyki',
+
+  // About
+  aboutTitle: 'O aplikacji',
+
+  // Survey
+  surveyTitle: 'Wypełnij ankietę',
+
+  // Statistics
+  statisticsTitle: 'Statystyki snu',
 };

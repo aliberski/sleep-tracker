@@ -62,7 +62,7 @@ const RegisterScreen = (props: IProps) => {
 };
 
 RegisterScreen.navigationOptions = {
-  title: texts.registerTitle,
+  title: texts.registerTitle.toUpperCase(),
 };
 
 export { RegisterScreen };

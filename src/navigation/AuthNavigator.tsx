@@ -6,8 +6,6 @@ import LoginScreen from 'screens/Auth/LoginScreen';
 import RegisterScreen from 'screens/Auth/RegisterScreen';
 import RemindPasswordScreen from 'screens/Auth/RemindPasswordScreen';
 
-import { BackArrow } from 'components/Icons';
-
 import {
   tabBarOptions,
   standardHeaderOptions,
@@ -35,7 +33,7 @@ export default createStackNavigator(
     headerBackTitleVisible: false,
     defaultNavigationOptions: {
       ...standardHeaderOptions,
-      title: texts.appName,
+      title: texts.appName.toUpperCase(),
     },
   },
 );
