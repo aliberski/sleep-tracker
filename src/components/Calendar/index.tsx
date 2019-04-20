@@ -20,9 +20,24 @@ const selectionOptions: IOptions = {
 
 class Calendar extends React.PureComponent<IProps, IState> {
   public state: IState = {
-    markedDates: {
+    markedDates: {},
+  };
+
+  public componentDidMount() {
+    this.handleInitialSelection();
+  }
+
+  public handleInitialSelection = () => {
+    const { initialDate } = this.props;
+    let markedDates = {
       [getTodaysDate()]: selectionOptions,
-    },
+    };
+    if (initialDate) {
+      markedDates = {
+        [initialDate]: selectionOptions,
+      };
+    }
+    this.setState({ markedDates });
   };
 
   public onDayPress = ({ dateString }: IDay) => {

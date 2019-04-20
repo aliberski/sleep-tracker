@@ -11,6 +11,7 @@ import routes from 'constants/routes';
 import { app } from 'constants/testIDs';
 import style from './style';
 import { IProps, INavItem } from './types';
+import CloseButton from 'components/CloseButton';
 
 class Drawer extends React.Component<IProps> {
   private get navItems(): INavItem[] {
@@ -42,28 +43,25 @@ class Drawer extends React.Component<IProps> {
   }
 
   public render() {
+    const {
+      navigation: { toggleDrawer },
+    } = this.props;
     return (
       <SafeView color={COLOR.primary}>
         <View
           style={style.container}
           testID={app.drawer.id}
         >
-          {this.renderCloseButton()}
+          <CloseButton
+            onPress={toggleDrawer}
+            style={style.close}
+            testID={app.drawer.buttonClose}
+          />
           {this.renderNavItems()}
         </View>
       </SafeView>
     );
   }
-
-  private renderCloseButton = () => (
-    <TouchableOpacity
-      onPress={() => this.props.navigation.toggleDrawer()}
-      style={style.close}
-      testID={app.drawer.buttonClose}
-    >
-      <IconClose />
-    </TouchableOpacity>
-  );
 
   private renderNavItems = () => {
     return this.navItems.map(

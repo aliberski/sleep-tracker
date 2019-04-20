@@ -22,7 +22,8 @@ class MainScreen extends React.Component<IProps, IState> {
   };
 
   public onSurveyButtonPress = () => {
-    this.props.navigation.navigate(routes.SURVEY);
+    const { selectedDay: date } = this.state;
+    this.props.navigation.navigate(routes.SURVEY, { date });
   };
 
   public onStatisticsButtonPress = () => {
@@ -43,10 +44,7 @@ class MainScreen extends React.Component<IProps, IState> {
 
   private renderTitle = () => (
     <Text style={style.title}>
-      {texts.mainTitle}{' '}
-      <Text style={style.day}>
-        {this.state.selectedDay}
-      </Text>
+      {texts.mainTitle} <Text style={style.day}>{this.state.selectedDay}</Text>
     </Text>
   );
 

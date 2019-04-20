@@ -1,28 +1,97 @@
 import React from 'react';
-import { Text, ScrollView } from 'react-native';
+import { Text, ScrollView, View } from 'react-native';
 
 import SafeView from 'components/SafeView';
+import Button from 'components/Button';
+import Modal from 'components/Modal';
+import Calendar from 'components/Calendar';
 
 import texts from 'constants/translations';
 import { app } from 'constants/testIDs';
+import { IProps, IState } from './types';
 import style from './style';
 
-const SurveyScreen = () => {
-  return (
-    <SafeView>
-      <ScrollView
-        style={style.container}
-        contentContainerStyle={style.contentContainer}
-        testID={app.survey.id}
-      >
-        <Text>SurveyScreen</Text>
-      </ScrollView>
-    </SafeView>
-  );
-};
+class SurveyScreen extends React.Component<IProps, IState> {
+  public state: IState = {
+    selectedDay: this.props.navigation.getParam('date'),
+    isModalVisible: false,
+    isLayoutReady: false,
+  };
 
-SurveyScreen.navigationOptions = {
-  title: texts.surveyTitle.toUpperCase(),
-};
+  public static navigationOptions = {
+    title: texts.surveyTitle.toUpperCase(),
+  };
+
+  public onDaySelect = (selectedDay: string) => {
+    this.setState({ selectedDay });
+    this.toggleDateModal();
+  };
+
+  public toggleDateModal = () => {
+    this.setState((prev: IState) => ({
+      isModalVisible: !prev.isModalVisible,
+    }));
+  };
+
+  public handleLayoutStatus = () => {
+    this.setState({ isLayoutReady: true });
+  };
+
+  public render() {
+    return (
+      <>
+        <SafeView>
+          <ScrollView
+            contentContainerStyle={style.contentContainer}
+            testID={app.survey.id}
+            style={style.container}
+          >
+            {this.renderHeader()}
+          </ScrollView>
+        </SafeView>
+        {this.renderModal()}
+      </>
+    );
+  }
+
+  private renderHeader = () => {
+    const { selectedDay } = this.state;
+    return (
+      <View
+        style={style.header}
+        onLayout={this.handleLayoutStatus}
+      >
+        <Text style={style.title}>{selectedDay}</Text>
+        <Button
+          link
+          style={style.button}
+          onPress={this.toggleDateModal}
+          text={texts.changeDateButton}
+        />
+      </View>
+    );
+  };
+
+  private renderModal = () => {
+    const {
+      isModalVisible,
+      isLayoutReady,
+      selectedDay,
+    } = this.state;
+    return (
+      <Modal
+        title={texts.modalTitle}
+        visible={isModalVisible}
+        onRequestClose={this.toggleDateModal}
+        isReady={isLayoutReady}
+      >
+        <Calendar
+          onSelect={this.onDaySelect}
+          initialDate={selectedDay}
+        />
+      </Modal>
+    );
+  };
+}
 
 export default SurveyScreen;

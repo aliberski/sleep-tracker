@@ -45,6 +45,8 @@ export default {
 
   // Survey
   surveyTitle: 'Wypełnij ankietę',
+  changeDateButton: 'Zmień datę',
+  modalTitle: 'Wybierz datę',
 
   // Statistics
   statisticsTitle: 'Statystyki snu',

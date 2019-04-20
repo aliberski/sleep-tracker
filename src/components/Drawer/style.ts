@@ -25,6 +25,5 @@ export default StyleSheet.create<IStyle>({
   },
   close: {
     alignSelf: 'flex-end',
-    padding: PADDING.primary,
   },
 });

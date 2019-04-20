@@ -3,6 +3,7 @@ import { markedStyle } from './style';
 
 export interface IProps {
   onSelect: (day: string) => void;
+  initialDate?: string;
 }
 
 export interface IState {
