@@ -43,10 +43,14 @@ class TimeInput extends React.PureComponent<
         {this.renderInput()}
         <DateTimePicker
           mode='time'
+          is24Hour
           minuteInterval={10}
           isVisible={isVisible}
           onConfirm={this.handleSelect}
           onCancel={this.togglePicker}
+          cancelTextIOS={texts.cancel}
+          confirmTextIOS={texts.confirm}
+          titleIOS={texts.timePlaceholder}
         />
       </>
     );

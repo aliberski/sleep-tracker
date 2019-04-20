@@ -1,6 +1,5 @@
 import { StyleSheet } from 'react-native';
 import {
-  BORDER,
   FONT_SIZE,
   FONT,
   COLOR,

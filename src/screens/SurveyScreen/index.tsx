@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, ScrollView, View } from 'react-native';
+import { Text, View } from 'react-native';
 
 import SafeView from 'components/SafeView';
 import Button from 'components/Button';
@@ -42,8 +42,8 @@ class SurveyScreen extends React.Component<IProps, IState> {
     return (
       <>
         <SafeView>
-          <ScrollView
-            contentContainerStyle={style.contentContainer}
+          <View
+            style={style.container}
             testID={app.survey.id}
           >
             <Text style={style.intro}>
@@ -51,7 +51,7 @@ class SurveyScreen extends React.Component<IProps, IState> {
             </Text>
             {this.renderHeader()}
             <SurveyForm />
-          </ScrollView>
+          </View>
         </SafeView>
         {this.renderModal()}
       </>

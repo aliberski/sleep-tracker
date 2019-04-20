@@ -4,6 +4,9 @@ export default {
   back: 'Wróć',
   confirm: 'Zatwierdź',
   cancel: 'Anuluj',
+  save: 'Zapisz',
+  no: 'Nie',
+  yes: 'Tak',
   timePlaceholder: 'Wybierz godzinę',
 
   // LoginScreen
@@ -59,6 +62,8 @@ export default {
   surveyLabelMood: 'Samopoczucie po przebudzeniu',
   surveyLabelSleep: 'O której poszedłeś spać?',
   surveyLabelWakeUp: 'O której wstałeś?',
+  surveyLabelFood: 'Czy jadłeś przed snem?',
+  surveyLabelAlcohol: 'Czy piłeś wczoraj alkohol?',
 
   // Statistics
   statisticsTitle: 'Statystyki snu',

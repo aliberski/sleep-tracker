@@ -11,7 +11,7 @@ export interface IState {
 }
 
 export interface IStyle {
-  contentContainer: ViewStyle;
+  container: ViewStyle;
   title: TextStyle;
   dateButton: ViewStyle;
   intro: TextStyle;
@@ -27,4 +27,5 @@ export interface IFormState {
 
 export interface IFormStyle {
   container: ViewStyle;
+  form: ViewStyle;
 }

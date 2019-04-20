@@ -9,8 +9,8 @@ import {
 } from 'constants/globalStyle';
 
 export default StyleSheet.create<IStyle>({
-  contentContainer: {
-    flexGrow: 1,
+  container: {
+    flex: 1,
   },
   header: {
     flexDirection: 'row',
@@ -45,5 +45,8 @@ export const formStyle = StyleSheet.create<IFormStyle>({
   container: {
     flex: 1,
     padding: PADDING.primary,
+  },
+  form: {
+    flex: 1,
   },
 });
