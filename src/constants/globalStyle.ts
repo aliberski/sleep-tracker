@@ -75,3 +75,20 @@ export const standardHeaderOptions = {
   },
   headerBackImage: IconBackArrow,
 };
+
+export const labelStyle = {
+  fontFamily: FONT.bold,
+  fontSize: FONT_SIZE.small,
+  color: COLOR.font,
+  paddingBottom: PADDING.small,
+};
+
+export const inputStyle = {
+  borderWidth: BORDER.primary,
+  borderColor: COLOR.border,
+  fontSize: FONT_SIZE.primary,
+  fontFamily: FONT.primary,
+  width: '100%',
+  paddingHorizontal: PADDING.primary,
+  paddingVertical: PADDING.medium,
+};

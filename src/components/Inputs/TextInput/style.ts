@@ -5,28 +5,17 @@ import {
   FONT,
   COLOR,
   PADDING,
+  labelStyle,
+  inputStyle,
 } from 'constants/globalStyle';
 import { IStyle } from './types';
 
 export default StyleSheet.create<IStyle>({
-  input: {
-    borderWidth: BORDER.primary,
-    borderColor: COLOR.border,
-    fontSize: FONT_SIZE.primary,
-    fontFamily: FONT.primary,
-    width: '100%',
-    paddingHorizontal: PADDING.primary,
-    paddingVertical: PADDING.medium,
-  },
+  input: inputStyle,
   inputWithError: {
     borderColor: COLOR.error,
   },
-  label: {
-    fontFamily: FONT.bold,
-    fontSize: FONT_SIZE.small,
-    color: COLOR.font,
-    paddingBottom: PADDING.small,
-  },
+  label: labelStyle,
   error: {
     paddingTop: PADDING.small,
     fontFamily: FONT.primary,

@@ -2,6 +2,9 @@ export default {
   // common
   appName: 'Sleep tracker',
   back: 'Wróć',
+  confirm: 'Zatwierdź',
+  cancel: 'Anuluj',
+  timePlaceholder: 'Wybierz godzinę',
 
   // LoginScreen
   loginTitle: 'Logowanie',
@@ -53,7 +56,9 @@ export default {
     'Jak się spało?\nWypełnij ankietę, aby umożliwić zbadanie jakości Twojego snu.',
   surveyChangeDateButton: 'Zmień datę',
   surveyModalTitle: 'Wybierz datę',
-  surveyLabelMood: 'Samopoczucie',
+  surveyLabelMood: 'Samopoczucie po przebudzeniu',
+  surveyLabelSleep: 'O której poszedłeś spać?',
+  surveyLabelWakeUp: 'O której wstałeś?',
 
   // Statistics
   statisticsTitle: 'Statystyki snu',

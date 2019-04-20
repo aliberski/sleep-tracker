@@ -2,9 +2,7 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 import MoodSelector from 'components/MoodSelector';
-import { Select } from 'components/Inputs';
-
-import { physicalActivityData } from 'constants/selectInputsData';
+import { TimeInput } from 'components/Inputs';
 
 import texts from 'constants/translations';
 import { MoodTypes } from 'components/MoodSelector/types';
@@ -16,33 +14,41 @@ class SurveyForm extends React.Component<
   IFormState
 > {
   public state: IFormState = {
-    sleepQuality: null,
-    physicalActivity: null,
+    mood: null,
+    sleepHour: null,
+    wakeUpHour: null,
   };
 
-  public handleSleepQualitySelect = (
-    sleepQuality: MoodTypes,
-  ) => {
-    this.setState({ sleepQuality });
+  public onMoodSelect = (mood: MoodTypes) => {
+    this.setState({ mood });
+  };
+
+  public onSleepHourChange = (sleepHour: string) => {
+    this.setState({ sleepHour });
+  };
+
+  public onWakeUpHourChange = (wakeUpHour: string) => {
+    this.setState({ wakeUpHour });
   };
 
   public render() {
-    const { sleepQuality } = this.state;
+    const { mood, sleepHour, wakeUpHour } = this.state;
     return (
       <View style={style.container}>
         <MoodSelector
           label={texts.surveyLabelMood}
-          selected={sleepQuality}
-          onSelect={this.handleSleepQualitySelect}
+          selected={mood}
+          onSelect={this.onMoodSelect}
         />
-        <Select
-          placeholder='test'
-          items={physicalActivityData}
-          onChange={physicalActivity =>
-            this.setState({ physicalActivity })
-          }
-          value={this.state.physicalActivity}
-          label='Aktywność fizyczna'
+        <TimeInput
+          label={texts.surveyLabelSleep}
+          value={sleepHour}
+          onSelect={this.onSleepHourChange}
+        />
+        <TimeInput
+          label={texts.surveyLabelWakeUp}
+          value={wakeUpHour}
+          onSelect={this.onWakeUpHourChange}
         />
       </View>
     );

@@ -6,6 +6,7 @@ import {
   FONT_SIZE,
   COLOR,
   PADDING,
+  labelStyle,
 } from 'constants/globalStyle';
 
 export const SIZE = ICON_SIZE.large;
@@ -14,12 +15,7 @@ export default StyleSheet.create<IStyle>({
   container: {
     paddingBottom: PADDING.primary,
   },
-  label: {
-    fontFamily: FONT.bold,
-    fontSize: FONT_SIZE.small,
-    color: COLOR.font,
-    paddingBottom: PADDING.primary,
-  },
+  label: labelStyle,
   buttons: {
     flexDirection: 'row',
   },

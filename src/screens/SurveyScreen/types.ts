@@ -20,7 +20,9 @@ export interface IStyle {
 
 export interface IFormProps {}
 export interface IFormState {
-  sleepQuality: MoodTypes | null;
+  mood: MoodTypes | null;
+  sleepHour: string | null;
+  wakeUpHour: string | null;
 }
 
 export interface IFormStyle {
