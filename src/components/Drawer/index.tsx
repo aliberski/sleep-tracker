@@ -2,8 +2,8 @@ import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
 
-import { IconClose } from 'components/Icons';
 import SafeView from 'components/SafeView';
+import CloseButton from 'components/CloseButton';
 
 import { COLOR } from 'constants/globalStyle';
 import texts from 'constants/translations';
@@ -11,7 +11,6 @@ import routes from 'constants/routes';
 import { app } from 'constants/testIDs';
 import style from './style';
 import { IProps, INavItem } from './types';
-import CloseButton from 'components/CloseButton';
 
 class Drawer extends React.Component<IProps> {
   private get navItems(): INavItem[] {
@@ -22,7 +21,12 @@ class Drawer extends React.Component<IProps> {
       {
         testID: app.drawer.linkMain,
         text: texts.drawerLinkMain,
-        onPress: () => {},
+        onPress: () => navigate(routes.MAIN),
+      },
+      {
+        testID: app.drawer.linkProfile,
+        text: texts.drawerLinkProfile,
+        onPress: () => navigate(routes.PROFILE),
       },
       {
         testID: app.drawer.linkSettings,

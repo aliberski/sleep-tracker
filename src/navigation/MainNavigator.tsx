@@ -9,6 +9,7 @@ import SettingsScreen from 'screens/SettingsScreen';
 import AboutScreen from 'screens/AboutScreen';
 import SurveyScreen from 'screens/SurveyScreen';
 import StatisticsScreen from 'screens/StatisticsScreen';
+import ProfileScreen from 'screens/ProfileScreen';
 
 import Drawer from 'components/Drawer';
 import HamburgerMenu from 'components/HamburgerMenu';
@@ -23,6 +24,7 @@ import {
 const MainNavigator = createStackNavigator(
   {
     [routes.MAIN]: MainScreen,
+    [routes.PROFILE]: ProfileScreen,
     [routes.SETTINGS]: SettingsScreen,
     [routes.ABOUT]: AboutScreen,
     [routes.SURVEY]: SurveyScreen,

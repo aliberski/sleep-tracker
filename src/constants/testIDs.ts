@@ -30,6 +30,7 @@ export const app = {
   drawer: {
     id: 'DRAWER_ID',
     linkMain: 'DRAWER_LINK_MAIN',
+    linkProfile: 'DRAWER_LINK_PROFILE',
     linkSettings: 'DRAWER_LINK_SETTINGS',
     linkAbout: 'DRAWER_LINK_ABOUT',
     linkLogout: 'DRAWER_LINK_LOGOUT',

@@ -10,6 +10,7 @@ enum routes {
   ABOUT = 'ABOUT',
   SURVEY = 'SURVEY',
   STATISTICS = 'STATISTICS',
+  PROFILE = 'PROFILE',
 }
 
 export default routes;

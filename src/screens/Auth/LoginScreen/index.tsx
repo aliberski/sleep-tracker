@@ -5,7 +5,7 @@ import { Dispatch } from 'redux';
 
 import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
 import Button from 'components/Button';
-import Input from 'components/Input';
+import { TextInput } from 'components/Inputs';
 import SafeView from 'components/SafeView';
 
 import texts from 'constants/translations';
@@ -29,13 +29,13 @@ const LoginScreen = (props: IProps) => {
       <View style={style.container} testID={auth.login.id}>
         <View style={style.form}>
           <KeyboardAwareWrapper>
-            <Input
+            <TextInput
               testID={auth.login.inputLogin}
               onChangeText={setLogin}
               value={login}
               label={texts.loginInputLogin}
             />
-            <Input
+            <TextInput
               testID={auth.login.inputPassword}
               onChangeText={setPassword}
               value={password}

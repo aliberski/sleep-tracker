@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
 import Button from 'components/Button';
-import Input from 'components/Input';
+import { TextInput } from 'components/Inputs';
 import SafeView from 'components/SafeView';
 
 import texts from 'constants/translations';
@@ -30,19 +30,19 @@ const RegisterScreen = (props: IProps) => {
       >
         <View style={style.form}>
           <KeyboardAwareWrapper>
-            <Input
+            <TextInput
               testID={auth.register.inputEmail}
               onChangeText={setEmail}
               value={email}
               label={texts.registerInputEmail}
             />
-            <Input
+            <TextInput
               testID={auth.register.inputLogin}
               onChangeText={setLogin}
               value={login}
               label={texts.registerInputLogin}
             />
-            <Input
+            <TextInput
               testID={auth.register.inputPassword}
               onChangeText={setPassword}
               value={password}

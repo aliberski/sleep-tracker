@@ -3,7 +3,7 @@ import { View } from 'react-native';
 import { connect } from 'react-redux';
 
 import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
-import Input from 'components/Input';
+import { TextInput } from 'components/Inputs';
 import Button from 'components/Button';
 import SafeView from 'components/SafeView';
 
@@ -25,7 +25,7 @@ const RemindPasswordScreen = (props: IProps) => {
       >
         <View style={style.form}>
           <KeyboardAwareWrapper>
-            <Input
+            <TextInput
               testID={auth.remindPassword.inputEmail}
               onChangeText={setEmail}
               value={email}

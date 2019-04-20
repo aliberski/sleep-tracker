@@ -24,9 +24,13 @@ export default {
 
   // Drawer
   drawerLinkMain: 'Strona główna',
+  drawerLinkProfile: 'Twój profil',
   drawerLinkSettings: 'Ustawienia konta',
   drawerLinkAbout: 'O aplikacji',
   drawerLinkLogout: 'Wyloguj się',
+
+  // Profile
+  profileTitle: 'Twój profil',
 
   // Settings
   settingsTitle: 'Ustawienia konta',
@@ -45,11 +49,11 @@ export default {
 
   // Survey
   surveyTitle: 'Wypełnij ankietę',
+  surveyIntro:
+    'Jak się spało?\nWypełnij ankietę, aby umożliwić zbadanie jakości Twojego snu.',
   surveyChangeDateButton: 'Zmień datę',
   surveyModalTitle: 'Wybierz datę',
   surveyLabelMood: 'Samopoczucie',
-  surveyIntro:
-    'Jak się spało?\nWypełnij ankietę, aby umożliwić zbadanie jakości Twojego snu.',
 
   // Statistics
   statisticsTitle: 'Statystyki snu',

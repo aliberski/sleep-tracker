@@ -2,6 +2,9 @@ import React from 'react';
 import { View, Text } from 'react-native';
 
 import MoodSelector from 'components/MoodSelector';
+import { Select } from 'components/Inputs';
+
+import { physicalActivityData } from 'constants/selectInputsData';
 
 import texts from 'constants/translations';
 import { MoodTypes } from 'components/MoodSelector/types';
@@ -14,6 +17,7 @@ class SurveyForm extends React.Component<
 > {
   public state: IFormState = {
     sleepQuality: null,
+    physicalActivity: null,
   };
 
   public handleSleepQualitySelect = (
@@ -30,6 +34,15 @@ class SurveyForm extends React.Component<
           label={texts.surveyLabelMood}
           selected={sleepQuality}
           onSelect={this.handleSleepQualitySelect}
+        />
+        <Select
+          placeholder='test'
+          items={physicalActivityData}
+          onChange={physicalActivity =>
+            this.setState({ physicalActivity })
+          }
+          value={this.state.physicalActivity}
+          label='Aktywność fizyczna'
         />
       </View>
     );
