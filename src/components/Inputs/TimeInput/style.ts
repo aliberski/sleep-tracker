@@ -3,6 +3,7 @@ import {
   inputStyle,
   labelStyle,
   PADDING,
+  inputTextStyle,
 } from 'constants/globalStyle';
 import { IStyle } from './types';
 
@@ -14,7 +15,7 @@ export default StyleSheet.create<IStyle>({
   },
   input: inputStyle,
   label: labelStyle,
-  value: {},
+  value: inputTextStyle,
   inputWrapper: {
     paddingBottom: PADDING.big,
   },

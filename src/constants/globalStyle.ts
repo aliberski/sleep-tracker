@@ -12,6 +12,7 @@ export const COLOR = {
   font: '#000000',
   font_light: '#FFFFFF',
   border: '#B4B4B4',
+  disabled: '#B4B4B4',
 };
 
 export const PADDING = {
@@ -83,11 +84,16 @@ export const labelStyle = {
   paddingBottom: PADDING.small,
 };
 
-export const inputStyle = {
-  borderWidth: BORDER.primary,
-  borderColor: COLOR.border,
+export const inputTextStyle = {
   fontSize: FONT_SIZE.primary,
   fontFamily: FONT.primary,
+  color: COLOR.font,
+};
+
+export const inputStyle = {
+  ...inputTextStyle,
+  borderWidth: BORDER.primary,
+  borderColor: COLOR.border,
   width: '100%',
   paddingHorizontal: PADDING.primary,
   paddingVertical: PADDING.medium,

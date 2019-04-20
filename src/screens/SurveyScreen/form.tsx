@@ -19,21 +19,30 @@ class SurveyForm extends React.Component<
     mood: null,
     sleepHour: null,
     wakeUpHour: null,
+    food: false,
+    alcohol: false,
+    caffeine: false,
   };
 
-  public onMoodSelect = (mood: MoodTypes) => {
+  public onMoodChange = (mood: MoodTypes) =>
     this.setState({ mood });
-  };
 
-  public onSleepHourChange = (sleepHour: string) => {
+  public onSleepHourChange = (sleepHour: string) =>
     this.setState({ sleepHour });
-  };
 
-  public onWakeUpHourChange = (wakeUpHour: string) => {
+  public onWakeUpHourChange = (wakeUpHour: string) =>
     this.setState({ wakeUpHour });
-  };
 
-  public submit = () => {};
+  public onFoodChange = (food: boolean) =>
+    this.setState({ food });
+
+  public onAlcoholChange = (alcohol: boolean) =>
+    this.setState({ alcohol });
+
+  public onCaffeineChange = (alcohol: boolean) =>
+    this.setState({ alcohol });
+
+  public submit = () => this.props.onSubmit(this.state);
 
   public render() {
     const { mood, sleepHour, wakeUpHour } = this.state;
@@ -44,21 +53,29 @@ class SurveyForm extends React.Component<
             <MoodSelector
               label={texts.surveyLabelMood}
               selected={mood}
-              onSelect={this.onMoodSelect}
+              onChange={this.onMoodChange}
             />
             <TimeInput
               label={texts.surveyLabelSleep}
               value={sleepHour}
-              onSelect={this.onSleepHourChange}
+              onChange={this.onSleepHourChange}
             />
             <TimeInput
               label={texts.surveyLabelWakeUp}
               value={wakeUpHour}
-              onSelect={this.onWakeUpHourChange}
+              onChange={this.onWakeUpHourChange}
             />
             <ToggleInput
-              onChange={() => {}}
+              onChange={this.onFoodChange}
               label={texts.surveyLabelFood}
+            />
+            <ToggleInput
+              onChange={this.onAlcoholChange}
+              label={texts.surveyLabelAlcohol}
+            />
+            <ToggleInput
+              onChange={this.onCaffeineChange}
+              label={texts.surveyLabelCaffeine}
             />
           </View>
         </KeyboardAwareWrapper>

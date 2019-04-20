@@ -8,6 +8,7 @@ export default {
   no: 'Nie',
   yes: 'Tak',
   timePlaceholder: 'Wybierz godzinę',
+  select: 'Wybierz',
 
   // LoginScreen
   loginTitle: 'Logowanie',
@@ -37,6 +38,13 @@ export default {
 
   // Profile
   profileTitle: 'Twój profil',
+  profileLabelWeight: 'Waga (kg)',
+  profileLabelHeight: 'Wzrost (cm)',
+  profileLabelAge: 'Wiek',
+  profileLabelActivity: 'Aktywność fizyczna',
+  profileActivityLow: 'Niska',
+  profileActivityAverage: 'Przeciętna',
+  profileActivityHigh: 'Wysoka',
 
   // Settings
   settingsTitle: 'Ustawienia konta',
@@ -56,7 +64,7 @@ export default {
   // Survey
   surveyTitle: 'Wypełnij ankietę',
   surveyIntro:
-    'Jak się spało?\nWypełnij ankietę, aby umożliwić zbadanie jakości Twojego snu.',
+    'Jak się spało?\nWypełnij krótką ankietę, aby umożliwić zbadanie jakości Twojego snu.',
   surveyChangeDateButton: 'Zmień datę',
   surveyModalTitle: 'Wybierz datę',
   surveyLabelMood: 'Samopoczucie po przebudzeniu',
@@ -64,6 +72,7 @@ export default {
   surveyLabelWakeUp: 'O której wstałeś?',
   surveyLabelFood: 'Czy jadłeś przed snem?',
   surveyLabelAlcohol: 'Czy piłeś wczoraj alkohol?',
+  surveyLabelCaffeine: 'Czy spożywałeś wczoraj kofeinę?',
 
   // Statistics
   statisticsTitle: 'Statystyki snu',

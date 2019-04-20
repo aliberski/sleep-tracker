@@ -32,7 +32,7 @@ class TimeInput extends React.PureComponent<
 
   public handleSelect = (date: Date) => {
     const value = moment(date).format(TIME_FORMAT);
-    this.props.onSelect(value);
+    this.props.onChange(value);
     this.togglePicker();
   };
 

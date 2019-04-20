@@ -11,11 +11,11 @@ import { COLOR } from 'constants/globalStyle';
 
 class MoodSelector extends React.PureComponent<IProps> {
   private get buttons() {
-    const { onSelect, selected } = this.props;
+    const { onChange, selected } = this.props;
     return [
       {
         id: 0,
-        onPress: () => onSelect(MoodTypes.bad),
+        onPress: () => onChange(MoodTypes.bad),
         icon: (color: string) => (
           <IconSad
             width={SIZE}
@@ -27,7 +27,7 @@ class MoodSelector extends React.PureComponent<IProps> {
       },
       {
         id: 1,
-        onPress: () => onSelect(MoodTypes.normal),
+        onPress: () => onChange(MoodTypes.normal),
         icon: (color: string) => (
           <IconNeutral
             width={SIZE}
@@ -39,7 +39,7 @@ class MoodSelector extends React.PureComponent<IProps> {
       },
       {
         id: 2,
-        onPress: () => onSelect(MoodTypes.good),
+        onPress: () => onChange(MoodTypes.good),
         icon: (color: string) => (
           <IconHappy
             width={SIZE}

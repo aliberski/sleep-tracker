@@ -8,6 +8,7 @@ export interface IProps {
   containerStyle?: any;
   inputProps?: any;
   testID?: string;
+  keyboardType?: string;
 }
 
 type InputType = ViewStyle | TextStyle;

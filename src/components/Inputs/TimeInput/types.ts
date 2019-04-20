@@ -1,7 +1,7 @@
 import { ViewStyle, TextStyle } from 'react-native';
 
 export interface IProps {
-  onSelect: (time: string) => void;
+  onChange: (time: string) => void;
   value: string | null;
   label: string;
   testID?: string;

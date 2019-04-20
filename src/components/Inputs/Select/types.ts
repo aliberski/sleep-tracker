@@ -1,10 +1,9 @@
 import { ViewStyle, TextStyle } from 'react-native';
 
 export interface IProps {
-  placeholder: string;
   items: IOption[];
   onChange: (value: string) => void;
-  value: string;
+  value: string | null;
   label?: string;
 }
 

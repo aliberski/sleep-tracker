@@ -9,7 +9,7 @@ import SurveyForm from './form';
 
 import texts from 'constants/translations';
 import { app } from 'constants/testIDs';
-import { IProps, IState } from './types';
+import { IProps, IState, IFormState } from './types';
 import style from './style';
 
 class SurveyScreen extends React.Component<IProps, IState> {
@@ -38,6 +38,11 @@ class SurveyScreen extends React.Component<IProps, IState> {
     this.setState({ isLayoutReady: true });
   };
 
+  public handleSubmit = (values: IFormState) => {
+    // TODO:
+    console.log('values', values);
+  };
+
   public render() {
     return (
       <>
@@ -50,7 +55,7 @@ class SurveyScreen extends React.Component<IProps, IState> {
               {texts.surveyIntro}
             </Text>
             {this.renderHeader()}
-            <SurveyForm />
+            <SurveyForm onSubmit={this.handleSubmit} />
           </View>
         </SafeView>
         {this.renderModal()}

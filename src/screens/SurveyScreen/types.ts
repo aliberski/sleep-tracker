@@ -18,11 +18,17 @@ export interface IStyle {
   header: ViewStyle;
 }
 
-export interface IFormProps {}
+export interface IFormProps {
+  onSubmit: (values: IFormState) => void;
+}
+
 export interface IFormState {
   mood: MoodTypes | null;
   sleepHour: string | null;
   wakeUpHour: string | null;
+  food: boolean;
+  alcohol: boolean;
+  caffeine: boolean;
 }
 
 export interface IFormStyle {

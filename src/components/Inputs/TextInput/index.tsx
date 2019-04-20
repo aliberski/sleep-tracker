@@ -19,6 +19,7 @@ const Input: React.FC<IProps> = (props: IProps) => {
     containerStyle,
     inputProps,
     testID,
+    keyboardType,
   } = props;
 
   const inputStyle = error
@@ -36,6 +37,7 @@ const Input: React.FC<IProps> = (props: IProps) => {
         onChangeText={onChangeText}
         value={value}
         style={inputStyle}
+        keyboardType={keyboardType || 'default'}
         underlineColorAndroid='transparent'
         selectionColor={COLOR.primary}
         {...inputProps}
