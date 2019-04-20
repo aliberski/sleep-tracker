@@ -45,8 +45,11 @@ export default {
 
   // Survey
   surveyTitle: 'Wypełnij ankietę',
-  changeDateButton: 'Zmień datę',
-  modalTitle: 'Wybierz datę',
+  surveyChangeDateButton: 'Zmień datę',
+  surveyModalTitle: 'Wybierz datę',
+  surveyLabelMood: 'Samopoczucie',
+  surveyIntro:
+    'Jak się spało?\nWypełnij ankietę, aby umożliwić zbadanie jakości Twojego snu.',
 
   // Statistics
   statisticsTitle: 'Statystyki snu',

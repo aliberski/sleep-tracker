@@ -46,6 +46,7 @@ export const ICON_SIZE = {
   primary: 20,
   small: 15,
   big: 25,
+  large: 40,
 };
 
 export const WINDOW_WIDTH = Dimensions.get('window').width;

@@ -5,6 +5,7 @@ import SafeView from 'components/SafeView';
 import Button from 'components/Button';
 import Modal from 'components/Modal';
 import Calendar from 'components/Calendar';
+import SurveyForm from './form';
 
 import texts from 'constants/translations';
 import { app } from 'constants/testIDs';
@@ -44,9 +45,12 @@ class SurveyScreen extends React.Component<IProps, IState> {
           <ScrollView
             contentContainerStyle={style.contentContainer}
             testID={app.survey.id}
-            style={style.container}
           >
+            <Text style={style.intro}>
+              {texts.surveyIntro}
+            </Text>
             {this.renderHeader()}
+            <SurveyForm />
           </ScrollView>
         </SafeView>
         {this.renderModal()}
@@ -64,9 +68,9 @@ class SurveyScreen extends React.Component<IProps, IState> {
         <Text style={style.title}>{selectedDay}</Text>
         <Button
           link
-          style={style.button}
+          style={style.dateButton}
           onPress={this.toggleDateModal}
-          text={texts.changeDateButton}
+          text={texts.surveyChangeDateButton}
         />
       </View>
     );
@@ -80,7 +84,7 @@ class SurveyScreen extends React.Component<IProps, IState> {
     } = this.state;
     return (
       <Modal
-        title={texts.modalTitle}
+        title={texts.surveyModalTitle}
         visible={isModalVisible}
         onRequestClose={this.toggleDateModal}
         isReady={isLayoutReady}
