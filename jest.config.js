@@ -30,7 +30,6 @@ module.exports = {
     '!src/navigation/**/*',
     '!src/saga/**/*',
     '!src/store/**/*',
-    '!src/modules/Test/*',
     '!src/components/Icons/*',
   ],
 };

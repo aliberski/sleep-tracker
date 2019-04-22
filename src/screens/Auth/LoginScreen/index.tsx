@@ -1,7 +1,7 @@
 import React, { useState /* useEffect */ } from 'react';
 import { View } from 'react-native';
 import { connect } from 'react-redux';
-import { Dispatch } from 'redux';
+import { Dispatch, bindActionCreators } from 'redux';
 
 import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
 import Button from 'components/Button';
@@ -10,10 +10,10 @@ import SafeView from 'components/SafeView';
 
 import texts from 'constants/translations';
 import { auth } from 'constants/testIDs';
-import { testActions } from 'modules/Test/actions';
+import { loginActions } from 'modules/Login/actions';
 import routes from 'constants/routes';
 import style from './style';
-import { IProps, IDispatchProps } from './types';
+import { IProps } from './types';
 
 const LoginScreen = (props: IProps) => {
   const [email, setEmail] = useState('');
@@ -21,6 +21,11 @@ const LoginScreen = (props: IProps) => {
   // useEffect(() => {
   //   props.testRequest();
   // }, []);
+
+  const submit = () => {
+    props.login({ email, password });
+  };
+
   const {
     navigation: { navigate },
   } = props;
@@ -56,7 +61,7 @@ const LoginScreen = (props: IProps) => {
         </View>
         <Button
           testID={auth.login.buttonSubmit}
-          onPress={navigate.bind(null, routes.MAIN)} // TODO: handle login
+          onPress={submit}
           text={texts.loginButtonSubmit}
         />
       </View>
@@ -68,12 +73,13 @@ LoginScreen.navigationOptions = {
   title: texts.loginTitle.toUpperCase(),
 };
 
-/* istanbul ignore next */
-const mapDispatchToProps = (
-  dispatch: Dispatch<any>,
-): IDispatchProps => ({
-  testRequest: () => dispatch(testActions.test()),
-});
+const mapDispatchToProps = (dispatch: Dispatch<any>) =>
+  bindActionCreators(
+    {
+      login: loginActions.loginRequest,
+    },
+    dispatch,
+  );
 
 export { LoginScreen };
 export default connect(
