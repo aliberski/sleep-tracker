@@ -1,5 +1,8 @@
 import { StyleSheet } from 'react-native';
-import { PADDING } from 'constants/globalStyle';
+import {
+  PADDING,
+  formErrorStyle,
+} from 'constants/globalStyle';
 import { IStyle } from './types';
 
 export default StyleSheet.create<IStyle>({
@@ -9,5 +12,9 @@ export default StyleSheet.create<IStyle>({
   },
   form: {
     flex: 1,
+  },
+  formError: {
+    ...formErrorStyle,
+    textAlign: 'center',
   },
 });

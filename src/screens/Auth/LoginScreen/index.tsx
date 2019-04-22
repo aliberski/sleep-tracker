@@ -1,5 +1,5 @@
-import React, { useState /* useEffect */ } from 'react';
-import { View } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { Dispatch, bindActionCreators } from 'redux';
 
@@ -8,6 +8,7 @@ import Button from 'components/Button';
 import { TextInput } from 'components/Inputs';
 import SafeView from 'components/SafeView';
 
+import { IStoreState } from 'store/appReducer';
 import texts from 'constants/translations';
 import { auth } from 'constants/testIDs';
 import { loginActions } from 'modules/Login/actions';
@@ -18,9 +19,6 @@ import { IProps } from './types';
 const LoginScreen = (props: IProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  // useEffect(() => {
-  //   props.testRequest();
-  // }, []);
 
   const submit = () => {
     props.login({ email, password });
@@ -28,6 +26,8 @@ const LoginScreen = (props: IProps) => {
 
   const {
     navigation: { navigate },
+    isLoading,
+    formError,
   } = props;
   return (
     <SafeView>
@@ -59,10 +59,16 @@ const LoginScreen = (props: IProps) => {
             />
           </KeyboardAwareWrapper>
         </View>
+        {!!formError && (
+          <Text style={style.formError}>
+            {formError.toUpperCase()}
+          </Text>
+        )}
         <Button
           testID={auth.login.buttonSubmit}
           onPress={submit}
           text={texts.loginButtonSubmit}
+          isLoading={isLoading}
         />
       </View>
     </SafeView>
@@ -72,6 +78,11 @@ const LoginScreen = (props: IProps) => {
 LoginScreen.navigationOptions = {
   title: texts.loginTitle.toUpperCase(),
 };
+
+const mapStateToProps = ({ login }: IStoreState) => ({
+  isLoading: login.loading,
+  formError: login.error,
+});
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) =>
   bindActionCreators(
@@ -83,6 +94,6 @@ const mapDispatchToProps = (dispatch: Dispatch<any>) =>
 
 export { LoginScreen };
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(LoginScreen);

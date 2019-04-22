@@ -6,6 +6,7 @@ export interface IProps {
   testID?: string;
   link?: boolean;
   style?: ViewStyle;
+  isLoading?: boolean;
 }
 
 export interface IStyle {
@@ -13,4 +14,5 @@ export interface IStyle {
   text: TextStyle;
   containerLink: ViewStyle;
   textLink: TextStyle;
+  indicator: ViewStyle;
 }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View } from 'react-native';
+import { View, Text } from 'react-native';
 import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -8,9 +8,9 @@ import Button from 'components/Button';
 import { TextInput } from 'components/Inputs';
 import SafeView from 'components/SafeView';
 
+import { IStoreState } from 'store/appReducer';
 import { registerActions } from 'modules/Register/actions';
 import texts from 'constants/translations';
-import routes from 'constants/routes';
 import { auth } from 'constants/testIDs';
 import style from './style';
 import { IProps } from './types';
@@ -20,15 +20,10 @@ const RegisterScreen = (props: IProps) => {
   const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
 
-  const {
-    navigation: { navigate },
-    register,
-  } = props;
+  const { register, isLoading, formError } = props;
 
   const submit = () => {
     register({ email, password });
-    // TODO:
-    navigate.bind(null, routes.LOGIN);
   };
 
   return (
@@ -61,10 +56,16 @@ const RegisterScreen = (props: IProps) => {
             />
           </KeyboardAwareWrapper>
         </View>
+        {!!formError && (
+          <Text style={style.formError}>
+            {formError.toUpperCase()}
+          </Text>
+        )}
         <Button
           testID={auth.register.buttonSubmit}
           onPress={submit}
           text={texts.registerButtonSubmit}
+          isLoading={isLoading}
         />
       </View>
     </SafeView>
@@ -74,6 +75,11 @@ const RegisterScreen = (props: IProps) => {
 RegisterScreen.navigationOptions = {
   title: texts.registerTitle.toUpperCase(),
 };
+
+const mapStateToProps = ({ register }: IStoreState) => ({
+  isLoading: register.loading,
+  formError: register.error,
+});
 
 const mapDispatchToProps = (dispatch: Dispatch<any>) =>
   bindActionCreators(
@@ -85,6 +91,6 @@ const mapDispatchToProps = (dispatch: Dispatch<any>) =>
 
 export { RegisterScreen };
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps,
 )(RegisterScreen);

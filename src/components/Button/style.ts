@@ -14,6 +14,8 @@ export default StyleSheet.create<IStyle>({
     backgroundColor: COLOR.primary,
     paddingHorizontal: PADDING.primary,
     paddingVertical: PADDING.medium,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   text: {
     color: COLOR.font_light,
@@ -31,5 +33,9 @@ export default StyleSheet.create<IStyle>({
     fontFamily: FONT.bold,
     fontSize: FONT_SIZE.small,
     textAlign: 'center',
+  },
+  indicator: {
+    position: 'absolute',
+    right: PADDING.big,
   },
 });

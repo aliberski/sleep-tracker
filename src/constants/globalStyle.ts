@@ -84,17 +84,23 @@ export const labelStyle = {
   paddingBottom: PADDING.small,
 };
 
-export const inputTextStyle = {
+export const defaultTextStyle = {
   fontSize: FONT_SIZE.primary,
   fontFamily: FONT.primary,
   color: COLOR.font,
 };
 
 export const inputStyle = {
-  ...inputTextStyle,
+  ...defaultTextStyle,
   borderWidth: BORDER.primary,
   borderColor: COLOR.border,
   width: '100%',
   paddingHorizontal: PADDING.primary,
   paddingVertical: PADDING.medium,
+};
+
+export const formErrorStyle = {
+  ...defaultTextStyle,
+  paddingVertical: PADDING.big,
+  color: COLOR.error,
 };
