@@ -16,7 +16,7 @@ import style from './style';
 import { IProps, IDispatchProps } from './types';
 
 const LoginScreen = (props: IProps) => {
-  const [login, setLogin] = useState('');
+  const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   // useEffect(() => {
   //   props.testRequest();
@@ -30,10 +30,11 @@ const LoginScreen = (props: IProps) => {
         <View style={style.form}>
           <KeyboardAwareWrapper>
             <TextInput
-              testID={auth.login.inputLogin}
-              onChangeText={setLogin}
-              value={login}
-              label={texts.loginInputLogin}
+              testID={auth.login.inputEmail}
+              onChangeText={setEmail}
+              value={email}
+              keyboardType='email-address'
+              label={texts.loginInputEmail}
             />
             <TextInput
               testID={auth.login.inputPassword}

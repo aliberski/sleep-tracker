@@ -1,4 +1,6 @@
 enum routes {
+  LOADING = 'LOADING',
+
   // Auth
   LOGIN = 'LOGIN',
   REGISTER = 'REGISTER',

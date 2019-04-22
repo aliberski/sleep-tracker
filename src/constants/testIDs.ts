@@ -1,7 +1,7 @@
 export const auth = {
   login: {
     id: 'LOGIN_ID',
-    inputLogin: 'LOGIN_INPUT_LOGIN',
+    inputEmail: 'LOGIN_INPUT_EMAIL',
     inputPassword: 'LOGIN_INPUT_PASSWORD',
     buttonSubmit: 'LOGIN_BUTTON_SUBMIT',
     buttonRemind: 'LOGIN_BUTTON_REMIND',

@@ -17,6 +17,7 @@ target 'sleepTracker' do
   ]
 
   pod 'Firebase/Core'
+  pod 'Firebase/Auth'
   
   pod 'yoga', :path => react_native_path + '/ReactCommon/yoga'
   pod 'RNSVG', :path => '../node_modules/react-native-svg'

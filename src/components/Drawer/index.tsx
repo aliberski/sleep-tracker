@@ -1,10 +1,17 @@
 import React from 'react';
 import { Text, View, TouchableOpacity } from 'react-native';
 import { withNavigation } from 'react-navigation';
+import {
+  compose,
+  Dispatch,
+  bindActionCreators,
+} from 'redux';
+import { connect } from 'react-redux';
 
 import SafeView from 'components/SafeView';
 import CloseButton from 'components/CloseButton';
 
+import { logoutActions } from 'modules/Logout/actions';
 import { COLOR } from 'constants/globalStyle';
 import texts from 'constants/translations';
 import routes from 'constants/routes';
@@ -16,6 +23,7 @@ class Drawer extends React.Component<IProps> {
   private get navItems(): INavItem[] {
     const {
       navigation: { navigate },
+      logout,
     } = this.props;
     return [
       {
@@ -41,7 +49,7 @@ class Drawer extends React.Component<IProps> {
       {
         testID: app.drawer.linkLogout,
         text: texts.drawerLinkLogout,
-        onPress: () => {},
+        onPress: logout,
       },
     ];
   }
@@ -83,4 +91,18 @@ class Drawer extends React.Component<IProps> {
   };
 }
 
-export default withNavigation(Drawer);
+const mapDispatchToProps = (dispatch: Dispatch<any>) =>
+  bindActionCreators(
+    {
+      logout: logoutActions.logout,
+    },
+    dispatch,
+  );
+
+export default compose(
+  withNavigation,
+  connect(
+    null,
+    mapDispatchToProps,
+  ),
+)(Drawer);

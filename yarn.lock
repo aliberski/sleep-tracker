@@ -2493,6 +2493,13 @@ domexception@^1.0.1:
   dependencies:
     webidl-conversions "^4.0.2"
 
+dot-prop@^5.0.0:
+  version "5.0.0"
+  resolved "https://registry.yarnpkg.com/dot-prop/-/dot-prop-5.0.0.tgz#64b7968af349c3a9f966aa12658dbd5829f6b953"
+  integrity sha512-RTmaF2jx3nOBO2GvtFqjnDLycjFUMqt+2pwRx7JVYa81lDauoj9aNkyrJI2ikR58FbBIchiIlRiGG+muLJ4oHQ==
+  dependencies:
+    is-obj "^1.0.0"
+
 dtrace-provider@~0.8:
   version "0.8.7"
   resolved "https://registry.yarnpkg.com/dtrace-provider/-/dtrace-provider-0.8.7.tgz#dc939b4d3e0620cfe0c1cd803d0d2d7ed04ffd04"
@@ -3609,6 +3616,11 @@ is-number@^4.0.0:
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/is-number/-/is-number-4.0.0.tgz#0026e37f5454d73e356dfe6564699867c6a7f0ff"
   integrity sha512-rSklcAIlf1OmFdyAqbnWTLVelsQ58uvZ66S/ZyawjWqIviTWCjg2PzVGw8WUA+nNuPTqb4wgA+NszrJ+08LlgQ==
+
+is-obj@^1.0.0:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/is-obj/-/is-obj-1.0.1.tgz#3e4729ac1f5fde025cd7d83a896dab9f4f67db0f"
+  integrity sha1-PkcprB9f3gJc19g6iW2rn09n2w8=
 
 is-plain-obj@^1.1.0:
   version "1.1.0"
@@ -5061,7 +5073,7 @@ mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.1:
   dependencies:
     minimist "0.0.8"
 
-moment@^2.10.6, moment@^2.24.0:
+moment@2.24.0, moment@^2.10.6:
   version "2.24.0"
   resolved "https://registry.yarnpkg.com/moment/-/moment-2.24.0.tgz#0d055d53f5052aa653c9f6eb68bb5d12bf5c2b5b"
   integrity sha512-bV7f+6l2QigeBBZSM/6yTNq4P2fNpSWj/0e7jQcy87A8e7o2nAfP/34/2ky5Vw4B9S446EtIhodAzkFCcR4dQg==
@@ -5876,7 +5888,7 @@ react-native-animatable@^1.2.4:
   dependencies:
     prop-types "^15.5.10"
 
-react-native-calendars@^1.32.0:
+react-native-calendars@1.32.0:
   version "1.32.0"
   resolved "https://registry.yarnpkg.com/react-native-calendars/-/react-native-calendars-1.32.0.tgz#3dc3d4c624f32f750731aa859efea80b2d3cb18b"
   integrity sha512-dFwUexh76f5UHSRaKzICGNsKUsr0v+uiRbNwb6bcyf9S4nSyjbK+2VR/Ue0vf+xD4dxFgzapxRzqZ7bHwibvxA==
@@ -5886,7 +5898,7 @@ react-native-calendars@^1.32.0:
     prop-types "^15.5.10"
     xdate "^0.8.0"
 
-react-native-firebase@^5.3.1:
+react-native-firebase@5.3.1:
   version "5.3.1"
   resolved "https://registry.yarnpkg.com/react-native-firebase/-/react-native-firebase-5.3.1.tgz#cfd295f562249f6fcf5e3fb2c62894575ece2c7f"
   integrity sha512-eOuSqIl+DZPNmN5ivSLgkEcsl5m0sXxttoPBn3bOHfI+apEd4I8F+9fcbHerUFUvLzesXmHR9locjhR6IJ+q3w==
@@ -5915,7 +5927,7 @@ react-native-keyboard-aware-scroll-view@0.8.0:
     prop-types "^15.6.2"
     react-native-iphone-x-helper "^1.0.3"
 
-react-native-modal-datetime-picker@^7.2.0:
+react-native-modal-datetime-picker@7.2.0:
   version "7.2.0"
   resolved "https://registry.yarnpkg.com/react-native-modal-datetime-picker/-/react-native-modal-datetime-picker-7.2.0.tgz#8aab6acbd6b3c9b43392673003f9a57830aa1e59"
   integrity sha512-Gx/f3RKMczCyTo7ONjswLMVOsKVOjwh6nxkMAOKtDvJhoN5RaCcBE2HdaIW0MjpEdjJzSCypvg9qOj4HFgZn/g==
@@ -5931,7 +5943,7 @@ react-native-modal@^9.0.0:
     prop-types "^15.6.2"
     react-native-animatable "^1.2.4"
 
-react-native-picker-select@^6.1.0:
+react-native-picker-select@6.1.0:
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/react-native-picker-select/-/react-native-picker-select-6.1.0.tgz#0ae6ba1578e3edc8b89660b81fdd85eef2226a35"
   integrity sha512-JYD0nMr9lXwcW/xxxf09TF8SN5ZqDlfIyr96Q4248ElvPpxVrSNlNNcZMo4OPnfogu1zBBVbrZzURh0oG+BV6g==

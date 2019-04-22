@@ -1,12 +1,12 @@
 import { combineReducers } from 'redux';
 
-import { ITestStoreState } from 'modules/test/types';
-import testReducer from 'modules/Test/reducer';
+import registerReducer from 'modules/Register/reducer';
+import { IRegisterStoreState } from 'modules/Register/types';
 
 export interface IStoreState {
-  test: ITestStoreState;
+  register: IRegisterStoreState;
 }
 
 export default combineReducers<IStoreState>({
-  test: testReducer,
+  register: registerReducer,
 });

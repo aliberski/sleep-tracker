@@ -1,8 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 
-import SafeView from 'components/SafeView';
-
 import getStoreInstance from 'store/createStore';
 import AppNavigator from 'navigation/AppNavigator';
 import rootSaga from 'saga';

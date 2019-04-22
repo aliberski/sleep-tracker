@@ -9,10 +9,11 @@ export default {
   yes: 'Tak',
   timePlaceholder: 'Wybierz godzinę',
   select: 'Wybierz',
+  error: 'Coś poszło nie tak',
 
   // LoginScreen
   loginTitle: 'Logowanie',
-  loginInputLogin: 'Login',
+  loginInputEmail: 'Email',
   loginInputPassword: 'Hasło',
   loginButtonRemind: 'Przypomnij hasło',
   loginButtonSubmit: 'Zaloguj się',

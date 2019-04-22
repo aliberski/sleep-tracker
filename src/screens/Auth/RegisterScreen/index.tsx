@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { View } from 'react-native';
+import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
 import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
@@ -7,6 +8,7 @@ import Button from 'components/Button';
 import { TextInput } from 'components/Inputs';
 import SafeView from 'components/SafeView';
 
+import { registerActions } from 'modules/Register/actions';
 import texts from 'constants/translations';
 import routes from 'constants/routes';
 import { auth } from 'constants/testIDs';
@@ -20,7 +22,14 @@ const RegisterScreen = (props: IProps) => {
 
   const {
     navigation: { navigate },
+    register,
   } = props;
+
+  const submit = () => {
+    register({ email, password });
+    // TODO:
+    navigate.bind(null, routes.LOGIN);
+  };
 
   return (
     <SafeView>
@@ -34,6 +43,7 @@ const RegisterScreen = (props: IProps) => {
               testID={auth.register.inputEmail}
               onChangeText={setEmail}
               value={email}
+              keyboardType='email-address'
               label={texts.registerInputEmail}
             />
             <TextInput
@@ -53,7 +63,7 @@ const RegisterScreen = (props: IProps) => {
         </View>
         <Button
           testID={auth.register.buttonSubmit}
-          onPress={navigate.bind(null, routes.LOGIN)} // TODO: handle register
+          onPress={submit}
           text={texts.registerButtonSubmit}
         />
       </View>
@@ -65,5 +75,16 @@ RegisterScreen.navigationOptions = {
   title: texts.registerTitle.toUpperCase(),
 };
 
+const mapDispatchToProps = (dispatch: Dispatch<any>) =>
+  bindActionCreators(
+    {
+      register: registerActions.registerRequest,
+    },
+    dispatch,
+  );
+
 export { RegisterScreen };
-export default connect()(RegisterScreen);
+export default connect(
+  null,
+  mapDispatchToProps,
+)(RegisterScreen);

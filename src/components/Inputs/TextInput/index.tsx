@@ -39,6 +39,7 @@ const Input: React.FC<IProps> = (props: IProps) => {
         style={inputStyle}
         keyboardType={keyboardType || 'default'}
         underlineColorAndroid='transparent'
+        autoCapitalize='none'
         selectionColor={COLOR.primary}
         {...inputProps}
       />
