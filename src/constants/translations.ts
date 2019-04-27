@@ -7,6 +7,7 @@ export default {
   save: 'Zapisz',
   no: 'Nie',
   yes: 'Tak',
+  ok: 'Ok',
   timePlaceholder: 'Wybierz godzinę',
   select: 'Wybierz',
   error: 'Coś poszło nie tak',
@@ -29,6 +30,8 @@ export default {
   remindTitle: 'PRZYPOMNIJ HASŁO',
   remindInputEmail: 'Email',
   remindButtonSubmit: 'Przypomnij hasło',
+  remindSuccessMessage:
+    'Na Twoją skrzynkę e-mail został wysłany link resetujący hasło',
 
   // Drawer
   drawerLinkMain: 'Strona główna',

@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
-import { View } from 'react-native';
+import React, { useState, useEffect } from 'react';
+import { View, Text, Alert } from 'react-native';
 import { connect } from 'react-redux';
+import { Dispatch, bindActionCreators } from 'redux';
 
 import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
 import { TextInput } from 'components/Inputs';
 import Button from 'components/Button';
 import SafeView from 'components/SafeView';
 
+import { remindPasswordActions } from 'modules/RemindPassword/actions';
+import { IStoreState } from 'store/appReducer';
 import texts from 'constants/translations';
 import routes from 'constants/routes';
 import { auth } from 'constants/testIDs';
@@ -15,14 +18,33 @@ import { IProps } from './types';
 
 const RemindPasswordScreen = (props: IProps) => {
   const [email, setEmail] = useState('');
-  const { navigation } = props;
-  const { navigate } = navigation;
+  const {
+    navigation: { navigate },
+    formError,
+    remindPassword,
+    isLoading,
+  } = props;
+
+  useEffect(() => {
+    if (props.success) {
+      Alert.alert(texts.remindSuccessMessage, '', [
+        {
+          text: texts.ok,
+          onPress: () => {
+            navigate(routes.LOGIN);
+          },
+        },
+      ]);
+    }
+  });
+
+  const submit = () => {
+    remindPassword({ email });
+  };
+
   return (
     <SafeView>
-      <View
-        style={style.container}
-        testID={auth.remindPassword.id}
-      >
+      <View style={style.container} testID={auth.remindPassword.id}>
         <View style={style.form}>
           <KeyboardAwareWrapper>
             <TextInput
@@ -33,9 +55,15 @@ const RemindPasswordScreen = (props: IProps) => {
             />
           </KeyboardAwareWrapper>
         </View>
+        {!!formError && (
+          <Text style={style.formError}>
+            {formError.toUpperCase()}
+          </Text>
+        )}
         <Button
           testID={auth.remindPassword.buttonSubmit}
-          onPress={navigate.bind(null, routes.LOGIN)} // TODO: handle submit
+          onPress={submit}
+          isLoading={isLoading}
           text={texts.remindButtonSubmit}
         />
       </View>
@@ -47,5 +75,22 @@ RemindPasswordScreen.navigationOptions = {
   title: texts.remindTitle.toUpperCase(),
 };
 
+const mapStateToProps = ({ remindPassword }: IStoreState) => ({
+  isLoading: remindPassword.loading,
+  formError: remindPassword.error,
+  success: remindPassword.success,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<any>) =>
+  bindActionCreators(
+    {
+      remindPassword: remindPasswordActions.remindPasswordRequest,
+    },
+    dispatch,
+  );
+
 export { RemindPasswordScreen };
-export default connect()(RemindPasswordScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(RemindPasswordScreen);

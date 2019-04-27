@@ -14,7 +14,8 @@ export interface IRegisterPayload {
 export type Actions =
   | IRegisterRequest
   | IRegisterSuccess
-  | IRegisterError;
+  | IRegisterError
+  | IRegisterClear;
 
 export interface IRegisterRequest {
   readonly type: ActionTypes.REGISTER_REQUEST;
@@ -28,4 +29,8 @@ export interface IRegisterSuccess {
 export interface IRegisterError {
   readonly type: ActionTypes.REGISTER_ERROR;
   payload: string | null;
+}
+
+export interface IRegisterClear {
+  readonly type: ActionTypes.REGISTER_CLEAR;
 }

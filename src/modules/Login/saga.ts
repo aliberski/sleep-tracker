@@ -21,9 +21,12 @@ function* loginSaga(action: ILoginRequest) {
       yield put(loginActions.loginError(response));
     } else {
       const success = !!get(response, 'user', null);
-      success
-        ? yield put(loginActions.loginSuccess())
-        : yield put(loginActions.loginError(texts.error));
+      if (success) {
+        yield put(loginActions.loginSuccess());
+        yield put(loginActions.loginClear());
+      } else {
+        yield put(loginActions.loginError(texts.error));
+      }
     }
   } catch (_) {
     yield put(loginActions.loginError(texts.error));

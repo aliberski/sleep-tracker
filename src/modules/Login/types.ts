@@ -14,7 +14,8 @@ export interface ILoginPayload {
 export type Actions =
   | ILoginRequest
   | ILoginSuccess
-  | ILoginError;
+  | ILoginError
+  | ILoginClear;
 
 export interface ILoginRequest {
   readonly type: ActionTypes.LOGIN_REQUEST;
@@ -28,4 +29,8 @@ export interface ILoginSuccess {
 export interface ILoginError {
   readonly type: ActionTypes.LOGIN_ERROR;
   payload: string | null;
+}
+
+export interface ILoginClear {
+  readonly type: ActionTypes.LOGIN_CLEAR;
 }

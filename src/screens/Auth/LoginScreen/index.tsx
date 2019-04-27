@@ -8,10 +8,10 @@ import Button from 'components/Button';
 import { TextInput } from 'components/Inputs';
 import SafeView from 'components/SafeView';
 
+import { loginActions } from 'modules/Login/actions';
 import { IStoreState } from 'store/appReducer';
 import texts from 'constants/translations';
 import { auth } from 'constants/testIDs';
-import { loginActions } from 'modules/Login/actions';
 import routes from 'constants/routes';
 import style from './style';
 import { IProps } from './types';
@@ -20,15 +20,17 @@ const LoginScreen = (props: IProps) => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
 
-  const submit = () => {
-    props.login({ email, password });
-  };
-
   const {
     navigation: { navigate },
     isLoading,
     formError,
+    login,
   } = props;
+
+  const submit = () => {
+    login({ email, password });
+  };
+
   return (
     <SafeView>
       <View style={style.container} testID={auth.login.id}>
@@ -52,10 +54,7 @@ const LoginScreen = (props: IProps) => {
               testID={auth.login.buttonRemind}
               link
               text={texts.loginButtonRemind}
-              onPress={navigate.bind(
-                null,
-                routes.REMIND_PASSWORD,
-              )}
+              onPress={navigate.bind(null, routes.REMIND_PASSWORD)}
             />
           </KeyboardAwareWrapper>
         </View>

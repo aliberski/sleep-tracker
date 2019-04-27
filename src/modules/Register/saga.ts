@@ -1,10 +1,7 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import firebase from 'react-native-firebase';
 import { get } from 'dot-prop';
-import {
-  IRegisterPayload,
-  IRegisterRequest,
-} from './types';
+import { IRegisterPayload, IRegisterRequest } from './types';
 import texts from 'constants/translations';
 import { ActionTypes, registerActions } from './actions';
 
@@ -28,11 +25,12 @@ function* registerSaga(action: IRegisterRequest) {
         'additionalUserInfo.isNewUser',
         false,
       );
-      success
-        ? yield put(registerActions.registerSuccess())
-        : yield put(
-            registerActions.registerError(texts.error),
-          );
+      if (success) {
+        yield put(registerActions.registerSuccess());
+        yield put(registerActions.registerClear());
+      } else {
+        yield put(registerActions.registerError(texts.error));
+      }
     }
   } catch (_) {
     yield put(registerActions.registerError(texts.error));
@@ -40,8 +38,5 @@ function* registerSaga(action: IRegisterRequest) {
 }
 
 export default function*() {
-  yield takeLatest(
-    ActionTypes.REGISTER_REQUEST,
-    registerSaga,
-  );
+  yield takeLatest(ActionTypes.REGISTER_REQUEST, registerSaga);
 }

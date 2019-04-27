@@ -1,18 +1,18 @@
 import { combineReducers } from 'redux';
 import { ErrorType } from 'constants/types';
 import { ActionTypes } from './actions';
-import { Actions, IRegisterStoreState } from './types';
+import { Actions, IRemindPasswordStoreState } from './types';
 
 const success = (
   state: boolean = false,
   action: Actions,
 ): boolean => {
   switch (action.type) {
-    case ActionTypes.REGISTER_SUCCESS:
+    case ActionTypes.REMIND_PASSWORD_SUCCESS:
       return true;
-    case ActionTypes.REGISTER_REQUEST:
-    case ActionTypes.REGISTER_ERROR:
-    case ActionTypes.REGISTER_CLEAR:
+    case ActionTypes.REMIND_PASSWORD_REQUEST:
+    case ActionTypes.REMIND_PASSWORD_ERROR:
+    case ActionTypes.REMIND_PASSWORD_CLEAR:
       return false;
     default:
       return state;
@@ -24,11 +24,11 @@ const loading = (
   action: Actions,
 ): boolean => {
   switch (action.type) {
-    case ActionTypes.REGISTER_REQUEST:
+    case ActionTypes.REMIND_PASSWORD_REQUEST:
       return true;
-    case ActionTypes.REGISTER_SUCCESS:
-    case ActionTypes.REGISTER_ERROR:
-    case ActionTypes.REGISTER_CLEAR:
+    case ActionTypes.REMIND_PASSWORD_SUCCESS:
+    case ActionTypes.REMIND_PASSWORD_ERROR:
+    case ActionTypes.REMIND_PASSWORD_CLEAR:
       return false;
     default:
       return state;
@@ -40,18 +40,18 @@ const error = (
   action: Actions,
 ): ErrorType => {
   switch (action.type) {
-    case ActionTypes.REGISTER_REQUEST:
-    case ActionTypes.REGISTER_SUCCESS:
-    case ActionTypes.REGISTER_CLEAR:
+    case ActionTypes.REMIND_PASSWORD_REQUEST:
+    case ActionTypes.REMIND_PASSWORD_SUCCESS:
+    case ActionTypes.REMIND_PASSWORD_CLEAR:
       return null;
-    case ActionTypes.REGISTER_ERROR:
+    case ActionTypes.REMIND_PASSWORD_ERROR:
       return action.payload;
     default:
       return state;
   }
 };
 
-export default combineReducers<IRegisterStoreState>({
+export default combineReducers<IRemindPasswordStoreState>({
   success,
   loading,
   error,

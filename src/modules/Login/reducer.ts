@@ -12,6 +12,7 @@ const success = (
       return true;
     case ActionTypes.LOGIN_REQUEST:
     case ActionTypes.LOGIN_ERROR:
+    case ActionTypes.LOGIN_CLEAR:
       return false;
     default:
       return state;
@@ -27,6 +28,7 @@ const loading = (
       return true;
     case ActionTypes.LOGIN_SUCCESS:
     case ActionTypes.LOGIN_ERROR:
+    case ActionTypes.LOGIN_CLEAR:
       return false;
     default:
       return state;
@@ -40,6 +42,7 @@ const error = (
   switch (action.type) {
     case ActionTypes.LOGIN_REQUEST:
     case ActionTypes.LOGIN_SUCCESS:
+    case ActionTypes.LOGIN_CLEAR:
       return null;
     case ActionTypes.LOGIN_ERROR:
       return action.payload;

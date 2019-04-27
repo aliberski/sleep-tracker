@@ -6,6 +6,7 @@ export enum ActionTypes {
   LOGIN_REQUEST = 'LOGIN - request',
   LOGIN_SUCCESS = 'LOGIN - success',
   LOGIN_ERROR = 'LOGIN - error',
+  LOGIN_CLEAR = 'LOGIN - clear',
 }
 
 export const loginActions = {
@@ -18,4 +19,5 @@ export const loginActions = {
     ActionTypes.LOGIN_ERROR,
     (payload: ErrorType) => payload,
   ),
+  loginClear: createAction(ActionTypes.LOGIN_CLEAR),
 };
