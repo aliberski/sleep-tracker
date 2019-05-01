@@ -1,11 +1,17 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, Alert, Text } from 'react-native';
+import { connect } from 'react-redux';
+import { Dispatch, bindActionCreators } from 'redux';
 
-import { Select, TextInput } from 'components/Inputs';
 import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
-import Button from 'components/Button';
+import { Select, TextInput } from 'components/Inputs';
+import FullPageLoader from 'components/FullPageLoader';
 import SafeView from 'components/SafeView';
+import Button from 'components/Button';
 
+import { is } from 'helpers/index';
+import { IStoreState } from 'store/appReducer';
+import { profileActions } from 'modules/Profile/actions';
 import texts from 'constants/translations';
 import style from './style';
 import { IProps, IState } from './types';
@@ -25,10 +31,7 @@ const physicalActivityData = [
   },
 ];
 
-class ProfileScreen extends React.Component<
-  IProps,
-  IState
-> {
+class ProfileScreen extends React.Component<IProps, IState> {
   public state: IState = {
     weight: '',
     height: '',
@@ -40,21 +43,47 @@ class ProfileScreen extends React.Component<
     title: texts.profileTitle.toUpperCase(),
   };
 
-  public submit = () => {};
+  public componentDidMount() {
+    this.setInputs();
+  }
 
-  public onActivityChange = (activity: string) =>
+  public componentDidUpdate(prevProps: IProps) {
+    if (!prevProps.submitSuccess && this.props.submitSuccess) {
+      Alert.alert(texts.success, texts.profileSuccessInfo, [
+        { text: texts.ok, onPress: () => {} },
+      ]);
+    }
+  }
+
+  public setInputs = () => {
+    const {
+      inputs: { weight, height, age, activity },
+    } = this.props;
+    is(weight) && this.setWeight(weight);
+    is(height) && this.setHeight(height);
+    is(age) && this.setAge(age);
+    is(activity) && this.setActivity(activity);
+  };
+
+  public submit = () => this.props.submit(this.state);
+
+  public setActivity = (activity: string | null) =>
     this.setState({ activity });
 
-  public setWeight = (weight: string) =>
-    this.setState({ weight });
+  public setWeight = (weight: string) => this.setState({ weight });
 
-  public setHeight = (height: string) =>
-    this.setState({ height });
+  public setHeight = (height: string) => this.setState({ height });
 
   public setAge = (age: string) => this.setState({ age });
 
   public render() {
     const { activity, weight, height, age } = this.state;
+    const { inputsLoading, submitLoading, submitError } = this.props;
+
+    if (inputsLoading) {
+      return <FullPageLoader />;
+    }
+
     return (
       <SafeView>
         <View style={style.container}>
@@ -79,16 +108,45 @@ class ProfileScreen extends React.Component<
             />
             <Select
               items={physicalActivityData}
-              onChange={this.onActivityChange}
+              onChange={this.setActivity}
               value={activity}
               label={texts.profileLabelActivity}
             />
           </KeyboardAwareWrapper>
-          <Button onPress={this.submit} text={texts.save} />
+          {!!submitError && (
+            <Text style={style.formError}>
+              {submitError.toUpperCase()}
+            </Text>
+          )}
+          <Button
+            onPress={this.submit}
+            text={texts.save}
+            isLoading={submitLoading}
+          />
         </View>
       </SafeView>
     );
   }
 }
 
-export default ProfileScreen;
+const mapStateToProps = ({ profile }: IStoreState) => ({
+  inputs: profile.data.inputs,
+  inputsLoading: profile.data.loading,
+
+  submitLoading: profile.form.loading,
+  submitSuccess: profile.form.success,
+  submitError: profile.form.error,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<any>) =>
+  bindActionCreators(
+    {
+      submit: profileActions.profileFormRequest,
+    },
+    dispatch,
+  );
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(ProfileScreen);

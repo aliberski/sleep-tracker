@@ -1,10 +1,11 @@
 import { StyleSheet } from 'react-native';
+import { PADDING, formErrorStyle } from 'constants/globalStyle';
 import { IStyle } from './types';
-import { PADDING } from 'constants/globalStyle';
 
 export default StyleSheet.create<IStyle>({
   container: {
     flex: 1,
     padding: PADDING.primary,
   },
+  formError: formErrorStyle,
 });

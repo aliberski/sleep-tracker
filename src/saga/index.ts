@@ -3,6 +3,7 @@ import registerSaga from 'modules/Register/saga';
 import logoutSaga from 'modules/Logout/saga';
 import loginSaga from 'modules/Login/saga';
 import remindPasswordSaga from 'modules/RemindPassword/saga';
+import profileSaga from 'modules/Profile/saga';
 
 export default function* rootSaga() {
   yield all([
@@ -10,5 +11,6 @@ export default function* rootSaga() {
     logoutSaga(),
     loginSaga(),
     remindPasswordSaga(),
+    profileSaga(),
   ]);
 }

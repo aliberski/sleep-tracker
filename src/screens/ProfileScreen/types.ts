@@ -1,7 +1,17 @@
-import { INavigation } from 'constants/types';
-import { ViewStyle } from 'react-native';
+import { ViewStyle, TextStyle } from 'react-native';
+import { INavigation, ErrorType } from 'constants/types';
+import { IProfileFormPayload } from 'modules/Profile/types';
 
-export interface IProps extends INavigation {}
+export interface IProps extends INavigation {
+  inputs: IProfileFormPayload;
+  inputsLoading: boolean;
+
+  submitLoading: boolean;
+  submitSuccess: boolean;
+  submitError: ErrorType;
+
+  submit: (payload: IProfileFormPayload) => void;
+}
 
 export interface IState {
   weight: string;
@@ -12,4 +22,5 @@ export interface IState {
 
 export interface IStyle {
   container: ViewStyle;
+  formError: TextStyle;
 }

@@ -11,6 +11,7 @@ export default {
   timePlaceholder: 'Wybierz godzinę',
   select: 'Wybierz',
   error: 'Coś poszło nie tak',
+  success: 'Sukces!',
 
   // LoginScreen
   loginTitle: 'Logowanie',
@@ -49,6 +50,7 @@ export default {
   profileActivityLow: 'Niska',
   profileActivityAverage: 'Przeciętna',
   profileActivityHigh: 'Wysoka',
+  profileSuccessInfo: 'Zaktualizowano profil',
 
   // Settings
   settingsTitle: 'Ustawienia konta',

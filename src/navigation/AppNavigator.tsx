@@ -1,5 +1,4 @@
 import {
-  createStackNavigator,
   createAppContainer,
   createSwitchNavigator,
 } from 'react-navigation';
