@@ -55,9 +55,10 @@ export default {
   // Settings
   settingsTitle: 'Ustawienia konta',
   settingsInputEmail: 'Email',
-  settingsInputLogin: 'Login',
-  settingsInputPassword: 'Hasło',
-  settingsButtonSubmit: 'Zapisz',
+  settingsResetConfirm: 'Czy na pewno chcesz zresetować hasło?',
+  settingsResetSuccess:
+    'Na Twoją skrzynkę e-mail został wysłany link resetujący hasło',
+  settingsButtonReset: 'Resetuj hasło',
 
   // Main
   mainTitle: 'Wybrany dzień: ',

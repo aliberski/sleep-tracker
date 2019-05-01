@@ -39,9 +39,7 @@ export const app = {
   settings: {
     id: 'SETTINGS_ID',
     inputEmail: 'SETTINGS_INPUT_EMAIL',
-    inputLogin: 'SETTINGS_INPUT_LOGIN',
-    inputPassword: 'SETTINGS_INPUT_PASSWORD',
-    buttonSubmit: 'SETTINGS_BUTTON_SUBMIT',
+    buttonReset: 'SETTINGS_BUTTON_RESET',
   },
   about: {
     id: 'ABOUT_ID',

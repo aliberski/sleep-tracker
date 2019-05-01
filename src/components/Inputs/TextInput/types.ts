@@ -9,6 +9,7 @@ export interface IProps {
   inputProps?: any;
   testID?: string;
   keyboardType?: string;
+  disabled?: boolean;
 }
 
 type InputType = ViewStyle | TextStyle;
@@ -18,4 +19,5 @@ export interface IStyle {
   input: InputType;
   inputWithError: InputType;
   error: TextStyle;
+  inputDisabled: ViewStyle;
 }

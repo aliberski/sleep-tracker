@@ -1,64 +1,91 @@
-import React, { useState } from 'react';
-import { View } from 'react-native';
+import React from 'react';
+import { View, Alert } from 'react-native';
 import { connect } from 'react-redux';
+import { bindActionCreators, Dispatch } from 'redux';
 
 import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
 import Button from 'components/Button';
 import { TextInput } from 'components/Inputs';
 import SafeView from 'components/SafeView';
+import FullPageLoader from 'components/FullPageLoader';
+import { settingsActions } from 'modules/Settings/actions';
 
+import { IStoreState } from 'store/appReducer';
 import texts from 'constants/translations';
 import { app } from 'constants/testIDs';
 import style from './style';
 import { IProps } from './types';
 
-const SettingsScreen = (props: IProps) => {
-  const [email, setEmail] = useState('');
-  const [login, setLogin] = useState('');
-  const [password, setPassword] = useState('');
+class SettingsScreen extends React.Component<IProps> {
+  public static navigationOptions = {
+    title: texts.settingsTitle.toUpperCase(),
+  };
 
-  return (
-    <SafeView>
-      <View
-        style={style.container}
-        testID={app.settings.id}
-      >
-        <View style={style.form}>
-          <KeyboardAwareWrapper>
-            <TextInput
-              testID={app.settings.inputEmail}
-              onChangeText={setEmail}
-              value={email}
-              label={texts.settingsInputEmail}
-            />
-            <TextInput
-              testID={app.settings.inputLogin}
-              onChangeText={setLogin}
-              value={login}
-              label={texts.settingsInputLogin}
-            />
-            <TextInput
-              testID={app.settings.inputPassword}
-              onChangeText={setPassword}
-              value={password}
-              inputProps={{ secureTextEntry: true }}
-              label={texts.settingsInputPassword}
-            />
-          </KeyboardAwareWrapper>
+  public componentDidMount() {
+    this.props.fetchData();
+  }
+
+  public onResetPress = () => {
+    Alert.alert('', texts.settingsResetConfirm, [
+      {
+        text: texts.yes,
+        onPress: () => {
+          // TODO:
+        },
+      },
+      { text: texts.cancel, onPress: () => {} },
+    ]);
+  };
+
+  public render() {
+    const { email, dataLoading } = this.props;
+    console.log('props', this.props);
+
+    if (dataLoading) {
+      return <FullPageLoader />;
+    }
+
+    return (
+      <SafeView>
+        <View style={style.container} testID={app.settings.id}>
+          <View style={style.form}>
+            <KeyboardAwareWrapper>
+              <TextInput
+                testID={app.settings.inputEmail}
+                onChangeText={() => {}}
+                value={email}
+                disabled
+                label={texts.settingsInputEmail}
+              />
+              <Button
+                link
+                text={texts.settingsButtonReset}
+                onPress={this.onResetPress}
+              />
+            </KeyboardAwareWrapper>
+          </View>
         </View>
-        <Button
-          testID={app.settings.buttonSubmit}
-          onPress={() => {}} // TODO: handle submit
-          text={texts.settingsButtonSubmit}
-        />
-      </View>
-    </SafeView>
-  );
-};
+      </SafeView>
+    );
+  }
+}
 
-SettingsScreen.navigationOptions = {
-  title: texts.settingsTitle.toUpperCase(),
-};
+const mapStateToProps = ({ settings }: IStoreState) => ({
+  email: settings.data.inputs.email,
+  dataLoading: settings.data.loading,
+  settings,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<any>) =>
+  bindActionCreators(
+    {
+      fetchData: settingsActions.settingsDataRequest,
+    },
+    dispatch,
+  );
 
 export { SettingsScreen };
-export default connect()(SettingsScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(SettingsScreen);

@@ -14,6 +14,9 @@ export default StyleSheet.create<IStyle>({
   inputWithError: {
     borderColor: COLOR.error,
   },
+  inputDisabled: {
+    backgroundColor: COLOR.disabled,
+  },
   label: labelStyle,
   error: {
     paddingTop: PADDING.small,

@@ -12,11 +12,15 @@ import { IRemindPasswordStoreState } from 'modules/RemindPassword/types';
 import profileReducer from 'modules/Profile/reducer';
 import { IProfileStoreState } from 'modules/Profile/types';
 
+import settingsReducer from 'modules/Settings/reducer';
+import { ISettingsStoreState } from 'modules/Settings/types';
+
 export interface IStoreState {
   register: IRegisterStoreState;
   login: ILoginStoreState;
   remindPassword: IRemindPasswordStoreState;
   profile: IProfileStoreState;
+  settings: ISettingsStoreState;
 }
 
 export default combineReducers<IStoreState>({
@@ -24,4 +28,5 @@ export default combineReducers<IStoreState>({
   login: loginReducer,
   remindPassword: remindPasswordReducer,
   profile: profileReducer,
+  settings: settingsReducer,
 });
