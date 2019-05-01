@@ -9,8 +9,8 @@ export const auth = {
   register: {
     id: 'REGISTER_ID',
     inputEmail: 'REGISTER_INPUT_EMAIL',
-    inputLogin: 'REGISTER_INPUT_LOGIN',
     inputPassword: 'REGISTER_INPUT_PASSWORD',
+    inputPasswordRepeat: 'REGISTER_INPUT_PASSWORD_REPEAT',
     buttonSubmit: 'REGISTER_BUTTON_SUBMIT',
   },
   remindPassword: {

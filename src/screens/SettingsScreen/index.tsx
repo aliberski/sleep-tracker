@@ -25,13 +25,20 @@ class SettingsScreen extends React.Component<IProps> {
     this.props.fetchData();
   }
 
+  public componentDidUpdate(prevProps: IProps) {
+    if (!prevProps.resetSuccess && this.props.resetSuccess) {
+      Alert.alert(texts.success, texts.settingsResetSuccess, [
+        { text: texts.ok, onPress: () => {} },
+      ]);
+    }
+  }
+
   public onResetPress = () => {
+    const { resetRequest, email } = this.props;
     Alert.alert('', texts.settingsResetConfirm, [
       {
         text: texts.yes,
-        onPress: () => {
-          // TODO:
-        },
+        onPress: () => resetRequest(email),
       },
       { text: texts.cancel, onPress: () => {} },
     ]);
@@ -39,7 +46,6 @@ class SettingsScreen extends React.Component<IProps> {
 
   public render() {
     const { email, dataLoading } = this.props;
-    console.log('props', this.props);
 
     if (dataLoading) {
       return <FullPageLoader />;
@@ -73,6 +79,7 @@ class SettingsScreen extends React.Component<IProps> {
 const mapStateToProps = ({ settings }: IStoreState) => ({
   email: settings.data.inputs.email,
   dataLoading: settings.data.loading,
+  resetSuccess: settings.reset.success,
   settings,
 });
 
@@ -80,6 +87,7 @@ const mapDispatchToProps = (dispatch: Dispatch<any>) =>
   bindActionCreators(
     {
       fetchData: settingsActions.settingsDataRequest,
+      resetRequest: settingsActions.settingsResetRequest,
     },
     dispatch,
   );

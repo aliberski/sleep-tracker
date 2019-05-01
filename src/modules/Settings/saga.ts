@@ -1,9 +1,9 @@
 import { call, put, takeLatest } from 'redux-saga/effects';
 import firebase from 'react-native-firebase';
 import { get } from 'dot-prop';
-import { ISettingsDataRequest } from './types';
 import { is } from 'helpers/index';
 import texts from 'constants/translations';
+import { ISettingsDataRequest, ISettingsResetRequest } from './types';
 import { ActionTypes, settingsActions } from './actions';
 
 const getSettings = async () => {
@@ -24,6 +24,21 @@ function* settingsDataSaga(action: ISettingsDataRequest) {
   }
 }
 
+const resetPassword = async (email: string) => {
+  await firebase.auth().sendPasswordResetEmail(email);
+};
+
+function* settingsResetSaga(action: ISettingsResetRequest) {
+  try {
+    yield call(resetPassword, action.payload);
+    yield put(settingsActions.settingsResetSuccess());
+    yield put(settingsActions.settingsResetClear());
+  } catch (_) {
+    yield put(settingsActions.settingsResetError(texts.error));
+  }
+}
+
 export default function*() {
   yield takeLatest(ActionTypes.SETTINGS_DATA_REQUEST, settingsDataSaga);
+  yield takeLatest(ActionTypes.SETTINGS_RESET_REQUEST, settingsResetSaga);
 }

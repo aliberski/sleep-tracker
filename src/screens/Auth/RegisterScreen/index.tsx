@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, Alert } from 'react-native';
 import { Dispatch, bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 
@@ -17,21 +17,24 @@ import { IProps } from './types';
 
 const RegisterScreen = (props: IProps) => {
   const [email, setEmail] = useState('');
-  const [login, setLogin] = useState('');
   const [password, setPassword] = useState('');
+  const [passwordRepeat, setPasswordRepeat] = useState('');
 
   const { register, isLoading, formError } = props;
 
   const submit = () => {
+    if (password !== passwordRepeat) {
+      Alert.alert('', texts.registerNotEqualPasswords, [
+        { text: texts.ok, onPress: () => {} },
+      ]);
+      return;
+    }
     register({ email, password });
   };
 
   return (
     <SafeView>
-      <View
-        style={style.container}
-        testID={auth.register.id}
-      >
+      <View style={style.container} testID={auth.register.id}>
         <View style={style.form}>
           <KeyboardAwareWrapper>
             <TextInput
@@ -42,24 +45,23 @@ const RegisterScreen = (props: IProps) => {
               label={texts.registerInputEmail}
             />
             <TextInput
-              testID={auth.register.inputLogin}
-              onChangeText={setLogin}
-              value={login}
-              label={texts.registerInputLogin}
-            />
-            <TextInput
               testID={auth.register.inputPassword}
               onChangeText={setPassword}
               value={password}
               inputProps={{ secureTextEntry: true }}
               label={texts.registerInputPassword}
             />
+            <TextInput
+              testID={auth.register.inputPasswordRepeat}
+              onChangeText={setPasswordRepeat}
+              value={passwordRepeat}
+              inputProps={{ secureTextEntry: true }}
+              label={texts.registerInputPasswordRepeat}
+            />
           </KeyboardAwareWrapper>
         </View>
         {!!formError && (
-          <Text style={style.formError}>
-            {formError.toUpperCase()}
-          </Text>
+          <Text style={style.formError}>{formError.toUpperCase()}</Text>
         )}
         <Button
           testID={auth.register.buttonSubmit}

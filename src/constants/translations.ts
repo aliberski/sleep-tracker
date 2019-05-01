@@ -23,9 +23,10 @@ export default {
   // RegisterScreen
   registerTitle: 'Rejestracja',
   registerInputEmail: 'Email',
-  registerInputLogin: 'Login',
   registerInputPassword: 'Hasło',
+  registerInputPasswordRepeat: 'Powtórz hasło',
   registerButtonSubmit: 'Zarejestruj się',
+  registerNotEqualPasswords: 'Podane hasła nie są identyczne',
 
   // RemindPasswordScreen
   remindTitle: 'PRZYPOMNIJ HASŁO',
