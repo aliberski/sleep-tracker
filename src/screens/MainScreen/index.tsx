@@ -1,29 +1,26 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { connect } from 'react-redux';
+import { Dispatch, bindActionCreators } from 'redux';
 
-import Calendar from 'components/Calendar';
+import Calendar from 'containers/Calendar';
+import Button from 'components/Button';
 
+import { surveyActions } from 'modules/Survey/actions';
+import { IStoreState } from 'store/appReducer';
 import routes from 'constants/routes';
 import texts from 'constants/translations';
 import { app } from 'constants/testIDs';
-import { getTodaysDate } from 'helpers';
 import style from './style';
-import { IProps, IState } from './types';
-import { Button } from 'components/Button';
+import { IProps } from './types';
 
-class MainScreen extends React.Component<IProps, IState> {
-  public state: IState = {
-    selectedDay: getTodaysDate(),
-  };
-
-  public onDaySelect = (selectedDay: string) => {
-    this.setState({ selectedDay });
-  };
+class MainScreen extends React.Component<IProps> {
+  public componentDidMount() {
+    this.props.fetchSurveyData();
+  }
 
   public onSurveyButtonPress = () => {
-    const { selectedDay: date } = this.state;
-    this.props.navigation.navigate(routes.SURVEY, { date });
+    this.props.navigation.navigate(routes.SURVEY);
   };
 
   public onStatisticsButtonPress = () => {
@@ -33,7 +30,7 @@ class MainScreen extends React.Component<IProps, IState> {
   public render() {
     return (
       <View style={style.container} testID={app.main.id}>
-        <Calendar onSelect={this.onDaySelect} />
+        <Calendar />
         <View style={style.content}>
           {this.renderTitle()}
           {this.renderButtons()}
@@ -44,7 +41,10 @@ class MainScreen extends React.Component<IProps, IState> {
 
   private renderTitle = () => (
     <Text style={style.title}>
-      {texts.mainTitle} <Text style={style.day}>{this.state.selectedDay}</Text>
+      {texts.mainTitle}{' '}
+      <Text style={style.day}>
+        {this.props.selectedDay}
+      </Text>
     </Text>
   );
 
@@ -67,5 +67,20 @@ class MainScreen extends React.Component<IProps, IState> {
   };
 }
 
+const mapStateToProps = ({ selectedDay }: IStoreState) => ({
+  selectedDay,
+});
+
+const mapDispatchToProps = (dispatch: Dispatch<any>) =>
+  bindActionCreators(
+    {
+      fetchSurveyData: surveyActions.surveyDataRequest,
+    },
+    dispatch,
+  );
+
 export { MainScreen };
-export default connect()(MainScreen);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(MainScreen);

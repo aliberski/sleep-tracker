@@ -1,17 +1,18 @@
 import { ViewStyle, TextStyle } from 'react-native';
-import { INavigation } from 'constants/types';
 import { SelectedDayPayload } from 'modules/SelectedDay/types';
 
-export interface IProps extends INavigation {
+export interface IProps {
   selectedDay: SelectedDayPayload;
-  fetchSurveyData: () => void;
+}
+
+export interface IState {
+  isLayoutReady: boolean;
+  isModalVisible: boolean;
 }
 
 export interface IStyle {
   container: ViewStyle;
-  content: ViewStyle;
   title: TextStyle;
-  day: TextStyle;
-  buttons: ViewStyle;
-  buttonSurvey: ViewStyle;
+  dateButton: ViewStyle;
+  header: ViewStyle;
 }

@@ -3,7 +3,7 @@ import { ViewStyle, TextStyle } from 'react-native';
 
 export interface IProps {
   onChange: (mood: MoodTypes) => void;
-  selected: MoodTypes | null;
+  value: MoodTypes | null;
   label: string;
 }
 

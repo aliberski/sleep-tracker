@@ -16,6 +16,21 @@ class ToggleInput extends React.PureComponent<
     isOn: false,
   };
 
+  public static defaultProps = {
+    initialValue: false,
+  };
+
+  public componentDidMount() {
+    this.setState({ isOn: this.props.initialValue });
+  }
+
+  public componentDidUpdate(prevProps: IProps) {
+    const { initialValue } = this.props;
+    if (prevProps.initialValue !== initialValue) {
+      this.setState({ isOn: initialValue });
+    }
+  }
+
   public toggle = () => {
     const { onChange } = this.props;
     this.setState(
@@ -26,9 +41,8 @@ class ToggleInput extends React.PureComponent<
 
   public render() {
     const { label } = this.props;
-    const yesColor = this.state.isOn
-      ? COLOR.font
-      : COLOR.border;
+    const { isOn } = this.state;
+    const yesColor = isOn ? COLOR.font : COLOR.border;
     const yesStyle = StyleSheet.flatten([
       style.yes,
       { color: yesColor },
@@ -40,10 +54,7 @@ class ToggleInput extends React.PureComponent<
           <Text style={style.no}>
             {texts.no.toUpperCase()}
           </Text>
-          <Toggle
-            value={this.state.isOn}
-            onPress={this.toggle}
-          />
+          <Toggle value={isOn} onPress={this.toggle} />
           <Text style={yesStyle}>
             {texts.yes.toUpperCase()}
           </Text>

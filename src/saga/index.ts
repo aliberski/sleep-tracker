@@ -5,6 +5,7 @@ import loginSaga from 'modules/Login/saga';
 import remindPasswordSaga from 'modules/RemindPassword/saga';
 import profileSaga from 'modules/Profile/saga';
 import settingsSaga from 'modules/Settings/saga';
+import surveySaga from 'modules/Survey/saga';
 
 export default function* rootSaga() {
   yield all([
@@ -14,5 +15,6 @@ export default function* rootSaga() {
     remindPasswordSaga(),
     profileSaga(),
     settingsSaga(),
+    surveySaga(),
   ]);
 }

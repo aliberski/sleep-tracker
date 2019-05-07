@@ -15,12 +15,20 @@ import { IProfileStoreState } from 'modules/Profile/types';
 import settingsReducer from 'modules/Settings/reducer';
 import { ISettingsStoreState } from 'modules/Settings/types';
 
+import surveyReducer from 'modules/Survey/reducer';
+import { ISurveyStoreState } from 'modules/Survey/types';
+
+import selectedDayReducer from 'modules/SelectedDay/reducer';
+import { ISelectedDayStoreState } from 'modules/SelectedDay/types';
+
 export interface IStoreState {
   register: IRegisterStoreState;
   login: ILoginStoreState;
   remindPassword: IRemindPasswordStoreState;
   profile: IProfileStoreState;
   settings: ISettingsStoreState;
+  survey: ISurveyStoreState;
+  selectedDay: ISelectedDayStoreState;
 }
 
 export default combineReducers<IStoreState>({
@@ -29,4 +37,6 @@ export default combineReducers<IStoreState>({
   remindPassword: remindPasswordReducer,
   profile: profileReducer,
   settings: settingsReducer,
+  survey: surveyReducer,
+  selectedDay: selectedDayReducer,
 });

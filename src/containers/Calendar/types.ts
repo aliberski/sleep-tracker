@@ -1,21 +1,24 @@
 import { ViewStyle } from 'react-native';
-import { markedStyle } from './style';
+import { SelectedDayPayload } from 'modules/SelectedDay/types';
 
 export interface IProps {
-  onSelect: (day: string) => void;
-  initialDate?: string;
+  onSelect: (day: SelectedDayPayload) => void;
+  selectedDay: SelectedDayPayload;
+  onAfterSelect?: () => void;
+  surveyData: any;
+  isSurveyLoading: boolean;
 }
 
 export interface IState {
   markedDates: {
     [day: string]: IOptions;
   };
+  isCalendarMounted: boolean;
 }
 
 export interface IOptions {
   selected: boolean;
   marked: boolean;
-  customStyles: typeof markedStyle;
 }
 
 export interface IStyle {

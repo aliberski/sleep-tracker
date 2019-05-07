@@ -3,6 +3,7 @@ import { ViewStyle, TextStyle } from 'react-native';
 export interface IProps {
   onChange: (isOn: boolean) => void;
   label: string;
+  initialValue: boolean;
 }
 
 export interface IState {

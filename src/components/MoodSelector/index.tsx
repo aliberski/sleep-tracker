@@ -11,7 +11,7 @@ import { COLOR } from 'constants/globalStyle';
 
 class MoodSelector extends React.PureComponent<IProps> {
   private get buttons() {
-    const { onChange, selected } = this.props;
+    const { onChange, value } = this.props;
     return [
       {
         id: 0,
@@ -23,7 +23,7 @@ class MoodSelector extends React.PureComponent<IProps> {
             fill={color}
           />
         ),
-        isSelected: selected === MoodTypes.bad,
+        isSelected: value === MoodTypes.bad,
       },
       {
         id: 1,
@@ -35,7 +35,7 @@ class MoodSelector extends React.PureComponent<IProps> {
             fill={color}
           />
         ),
-        isSelected: selected === MoodTypes.normal,
+        isSelected: value === MoodTypes.normal,
       },
       {
         id: 2,
@@ -47,7 +47,7 @@ class MoodSelector extends React.PureComponent<IProps> {
             fill={color}
           />
         ),
-        isSelected: selected === MoodTypes.good,
+        isSelected: value === MoodTypes.good,
       },
     ];
   }
@@ -67,7 +67,9 @@ class MoodSelector extends React.PureComponent<IProps> {
   private renderButtons = () => {
     return this.buttons.map((button: IButton) => {
       const { id, onPress, icon, isSelected } = button;
-      const color = isSelected ? COLOR.font : COLOR.border;
+      const color = isSelected
+        ? COLOR.primary
+        : COLOR.border;
       return (
         <TouchableOpacity
           key={id}

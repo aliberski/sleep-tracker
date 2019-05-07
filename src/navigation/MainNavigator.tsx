@@ -11,7 +11,7 @@ import SurveyScreen from 'screens/SurveyScreen';
 import StatisticsScreen from 'screens/StatisticsScreen';
 import ProfileScreen from 'screens/ProfileScreen';
 
-import Drawer from 'components/Drawer';
+import Drawer from 'containers/Drawer';
 import HamburgerMenu from 'components/HamburgerMenu';
 
 import routes from 'constants/routes';

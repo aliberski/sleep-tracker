@@ -7,15 +7,25 @@ import {
 import style, { SWITCH_SIZE } from './style';
 import { IProps } from './types';
 
-class Toggle extends React.Component<IProps> {
+class Toggle extends React.PureComponent<IProps> {
   private transformAnimationDriver = new Animated.Value(0);
   private backgroundAnimationDriver = new Animated.Value(0);
 
   public componentDidMount() {
+    this.setInitialValue();
+  }
+
+  public componentDidUpdate(prevProps: IProps) {
+    if (prevProps.value !== this.props.value) {
+      this.setInitialValue();
+    }
+  }
+
+  public setInitialValue = () => {
     const initialValue = this.props.value ? 1 : 0;
     this.transformAnimationDriver.setValue(initialValue);
     this.backgroundAnimationDriver.setValue(initialValue);
-  }
+  };
 
   private get transformAnimatedValue() {
     return {

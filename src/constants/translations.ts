@@ -26,7 +26,8 @@ export default {
   registerInputPassword: 'Hasło',
   registerInputPasswordRepeat: 'Powtórz hasło',
   registerButtonSubmit: 'Zarejestruj się',
-  registerNotEqualPasswords: 'Podane hasła nie są identyczne',
+  registerNotEqualPasswords:
+    'Podane hasła nie są identyczne',
 
   // RemindPasswordScreen
   remindTitle: 'PRZYPOMNIJ HASŁO',
@@ -56,7 +57,8 @@ export default {
   // Settings
   settingsTitle: 'Ustawienia konta',
   settingsInputEmail: 'Email',
-  settingsResetConfirm: 'Czy na pewno chcesz zresetować hasło?',
+  settingsResetConfirm:
+    'Czy na pewno chcesz zresetować hasło?',
   settingsResetSuccess:
     'Na Twoją skrzynkę e-mail został wysłany link resetujący hasło',
   settingsButtonReset: 'Resetuj hasło',
@@ -81,6 +83,11 @@ export default {
   surveyLabelFood: 'Czy jadłeś przed snem?',
   surveyLabelAlcohol: 'Czy piłeś wczoraj alkohol?',
   surveyLabelCaffeine: 'Czy spożywałeś wczoraj kofeinę?',
+  surveyValidationMood:
+    'Uzupełnij informację o swoim samopoczuciu',
+  surveyValidationSleepHour: 'Uzupełnij godzinę zaśnięcia',
+  surveyValidationWakeUpHour: 'Uzupełnij godzinę pobudki',
+  surveySuccess: 'Twoja ankieta została zapisana',
 
   // Statistics
   statisticsTitle: 'Statystyki snu',

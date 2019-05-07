@@ -12,25 +12,6 @@ export default StyleSheet.create<IStyle>({
   container: {
     flex: 1,
   },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    borderTopWidth: BORDER.hair,
-    borderTopColor: COLOR.border,
-    borderBottomWidth: BORDER.hair,
-    borderBottomColor: COLOR.border,
-    padding: PADDING.primary,
-  },
-  title: {
-    fontFamily: FONT.bold,
-    fontSize: FONT_SIZE.big,
-    color: COLOR.primary,
-  },
-  dateButton: {
-    // @ts-ignore
-    width: null,
-  },
   intro: {
     fontFamily: FONT.primary,
     fontSize: FONT_SIZE.primary,
