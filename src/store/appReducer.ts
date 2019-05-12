@@ -21,6 +21,9 @@ import { ISurveyStoreState } from 'modules/Survey/types';
 import selectedDayReducer from 'modules/SelectedDay/reducer';
 import { ISelectedDayStoreState } from 'modules/SelectedDay/types';
 
+import statisticsReducer from 'modules/Statistics/reducer';
+import { IStatisticsStoreState } from 'modules/Statistics/types';
+
 export interface IStoreState {
   register: IRegisterStoreState;
   login: ILoginStoreState;
@@ -29,6 +32,7 @@ export interface IStoreState {
   settings: ISettingsStoreState;
   survey: ISurveyStoreState;
   selectedDay: ISelectedDayStoreState;
+  statistics: IStatisticsStoreState;
 }
 
 export default combineReducers<IStoreState>({
@@ -39,4 +43,5 @@ export default combineReducers<IStoreState>({
   settings: settingsReducer,
   survey: surveyReducer,
   selectedDay: selectedDayReducer,
+  statistics: statisticsReducer,
 });

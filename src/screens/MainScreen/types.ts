@@ -5,6 +5,7 @@ import { SelectedDayPayload } from 'modules/SelectedDay/types';
 export interface IProps extends INavigation {
   selectedDay: SelectedDayPayload;
   fetchSurveyData: () => void;
+  fetchProfileData: () => void;
 }
 
 export interface IStyle {

@@ -5,12 +5,13 @@ import { get } from 'dot-prop';
 import texts from 'constants/translations';
 import endpoint from 'constants/databaseEndpoints';
 import { getUid } from 'services/user';
+import { statisticsActions } from 'modules/Statistics/actions';
+import { ActionTypes, surveyActions } from './actions';
 import {
   ISurveyDataRequest,
   ISurveyFormRequest,
   ISurveyFormPayload,
 } from './types';
-import { ActionTypes, surveyActions } from './actions';
 
 const getSurvey = async () => {
   const uid = getUid();
@@ -28,6 +29,7 @@ function* surveyDataSaga(action: ISurveyDataRequest) {
       yield put(surveyActions.surveyDataError(response));
     } else {
       yield put(surveyActions.surveyDataSuccess(response));
+      yield put(statisticsActions.calculate(response));
     }
   } catch (_) {
     yield put(surveyActions.surveyDataError(texts.error));

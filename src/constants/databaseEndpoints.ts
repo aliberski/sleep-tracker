@@ -1,3 +1,4 @@
 export default {
-  SURVEY: 'survey/',
+  SURVEY: 'survey',
+  PROFILE: 'profile',
 };

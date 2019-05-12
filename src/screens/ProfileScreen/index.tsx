@@ -14,24 +14,27 @@ import { IStoreState } from 'store/appReducer';
 import { profileActions } from 'modules/Profile/actions';
 import texts from 'constants/translations';
 import style from './style';
-import { IProps, IState } from './types';
+import { IProps, IState, ActivityType } from './types';
 
 const physicalActivityData = [
   {
     label: texts.profileActivityLow,
-    value: texts.profileActivityLow,
+    value: ActivityType.low,
   },
   {
     label: texts.profileActivityAverage,
-    value: texts.profileActivityAverage,
+    value: ActivityType.average,
   },
   {
     label: texts.profileActivityHigh,
-    value: texts.profileActivityHigh,
+    value: ActivityType.high,
   },
 ];
 
-class ProfileScreen extends React.Component<IProps, IState> {
+class ProfileScreen extends React.Component<
+  IProps,
+  IState
+> {
   public state: IState = {
     weight: '',
     height: '',
@@ -48,7 +51,10 @@ class ProfileScreen extends React.Component<IProps, IState> {
   }
 
   public componentDidUpdate(prevProps: IProps) {
-    if (!prevProps.submitSuccess && this.props.submitSuccess) {
+    if (
+      !prevProps.submitSuccess &&
+      this.props.submitSuccess
+    ) {
       Alert.alert(texts.success, texts.profileSuccessInfo, [
         { text: texts.ok, onPress: () => {} },
       ]);
@@ -70,15 +76,21 @@ class ProfileScreen extends React.Component<IProps, IState> {
   public setActivity = (activity: string | null) =>
     this.setState({ activity });
 
-  public setWeight = (weight: string) => this.setState({ weight });
+  public setWeight = (weight: string) =>
+    this.setState({ weight });
 
-  public setHeight = (height: string) => this.setState({ height });
+  public setHeight = (height: string) =>
+    this.setState({ height });
 
   public setAge = (age: string) => this.setState({ age });
 
   public render() {
     const { activity, weight, height, age } = this.state;
-    const { inputsLoading, submitLoading, submitError } = this.props;
+    const {
+      inputsLoading,
+      submitLoading,
+      submitError,
+    } = this.props;
 
     if (inputsLoading) {
       return <FullPageLoader />;

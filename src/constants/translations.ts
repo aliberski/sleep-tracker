@@ -91,4 +91,11 @@ export default {
 
   // Statistics
   statisticsTitle: 'Statystyki snu',
+  statisticsIntro:
+    'Poniższe wykresy przedstawiają rozkład parametrów wpływających na jakość snu.',
+  statisticsLabelMood: 'Samopoczucie',
+  statisticsLabelHours: 'Czas trwania snu',
+  statisticsLabelFood: 'Jedzenie przed snem',
+  statisticsLabelAlcohol: 'Alkohol',
+  statisticsLabelCaffeine: 'Kofeina',
 };

@@ -28,13 +28,15 @@ const dataSuccess = (
     case ActionTypes.PROFILE_DATA_REQUEST:
     case ActionTypes.PROFILE_DATA_ERROR:
     case ActionTypes.PROFILE_DATA_CLEAR:
-      return initialInputsState;
     default:
       return state;
   }
 };
 
-const dataLoading = (state: boolean = false, action: Actions): boolean => {
+const dataLoading = (
+  state: boolean = false,
+  action: Actions,
+): boolean => {
   switch (action.type) {
     case ActionTypes.PROFILE_DATA_REQUEST:
       return true;
@@ -65,7 +67,10 @@ const dataError = (
 
 // PROFILE_FORM
 
-const formSuccess = (state: boolean = false, action: Actions): boolean => {
+const formSuccess = (
+  state: boolean = false,
+  action: Actions,
+): boolean => {
   switch (action.type) {
     case ActionTypes.PROFILE_FORM_SUCCESS:
       return true;
@@ -78,7 +83,10 @@ const formSuccess = (state: boolean = false, action: Actions): boolean => {
   }
 };
 
-const formLoading = (state: boolean = false, action: Actions): boolean => {
+const formLoading = (
+  state: boolean = false,
+  action: Actions,
+): boolean => {
   switch (action.type) {
     case ActionTypes.PROFILE_FORM_REQUEST:
       return true;

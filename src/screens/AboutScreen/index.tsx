@@ -9,7 +9,6 @@ import { app } from 'constants/testIDs';
 import style from './style';
 
 const AboutScreen = () => {
-  // TODO: add `about` text
   return (
     <SafeView>
       <ScrollView

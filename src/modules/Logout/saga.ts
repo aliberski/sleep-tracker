@@ -1,7 +1,9 @@
-import { call, takeLatest } from 'redux-saga/effects';
+import { call, takeLatest, put } from 'redux-saga/effects';
 import firebase from 'react-native-firebase';
-import { ILogout } from './types';
+
+import { rootActions } from 'store/rootReducer';
 import texts from 'constants/translations';
+import { ILogout } from './types';
 import { ActionTypes } from './actions';
 
 const logout = async () => {
@@ -11,6 +13,7 @@ const logout = async () => {
 function* logoutSaga(action: ILogout) {
   try {
     yield call(logout);
+    yield put(rootActions.clearStore());
   } catch (_) {
     console.log(texts.error);
   }

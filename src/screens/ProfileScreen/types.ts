@@ -24,3 +24,9 @@ export interface IStyle {
   container: ViewStyle;
   formError: TextStyle;
 }
+
+export enum ActivityType {
+  low = 'low',
+  average = 'average',
+  high = 'high',
+}

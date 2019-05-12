@@ -13,6 +13,14 @@ export const COLOR = {
   font_light: '#FFFFFF',
   border: '#B4B4B4',
   disabled: '#B4B4B4',
+
+  charts: {
+    mood: 'red',
+    hours: 'blue',
+    food: 'green',
+    alcohol: 'brown',
+    caffeine: 'black',
+  },
 };
 
 export const PADDING = {
