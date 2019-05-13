@@ -98,4 +98,6 @@ export default {
   statisticsLabelFood: 'Jedzenie przed snem',
   statisticsLabelAlcohol: 'Alkohol',
   statisticsLabelCaffeine: 'Kofeina',
+  statisticsEmptyText: 'Brak statystyk do wyświetlenia',
+  statisticsEmptyButtonText: 'Wypełnij ankietę',
 };

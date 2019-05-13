@@ -8,6 +8,7 @@ import IconHappy from 'images/icons/happy.svg';
 import style, { SIZE } from './style';
 import { IProps, MoodTypes, IButton } from './types';
 import { COLOR } from 'constants/globalStyle';
+import { app } from 'constants/testIDs';
 
 class MoodSelector extends React.PureComponent<IProps> {
   private get buttons() {
@@ -55,7 +56,10 @@ class MoodSelector extends React.PureComponent<IProps> {
   public render() {
     const { label } = this.props;
     return (
-      <View style={style.container}>
+      <View
+        style={style.container}
+        testID={app.moodSelector.id}
+      >
         <Text style={style.label}>{label}</Text>
         <View style={style.buttons}>
           {this.renderButtons()}
@@ -65,21 +69,24 @@ class MoodSelector extends React.PureComponent<IProps> {
   }
 
   private renderButtons = () => {
-    return this.buttons.map((button: IButton) => {
-      const { id, onPress, icon, isSelected } = button;
-      const color = isSelected
-        ? COLOR.primary
-        : COLOR.border;
-      return (
-        <TouchableOpacity
-          key={id}
-          onPress={onPress}
-          style={style.button}
-        >
-          {icon(color)}
-        </TouchableOpacity>
-      );
-    });
+    return this.buttons.map(
+      (button: IButton, i: number) => {
+        const { id, onPress, icon, isSelected } = button;
+        const color = isSelected
+          ? COLOR.primary
+          : COLOR.border;
+        return (
+          <TouchableOpacity
+            key={id}
+            onPress={onPress}
+            style={style.button}
+            testID={app.moodSelector.mood[i]}
+          >
+            {icon(color)}
+          </TouchableOpacity>
+        );
+      },
+    );
   };
 }
 

@@ -40,7 +40,7 @@ class ToggleInput extends React.PureComponent<
   };
 
   public render() {
-    const { label } = this.props;
+    const { label, testID } = this.props;
     const { isOn } = this.state;
     const yesColor = isOn ? COLOR.font : COLOR.border;
     const yesStyle = StyleSheet.flatten([
@@ -54,7 +54,11 @@ class ToggleInput extends React.PureComponent<
           <Text style={style.no}>
             {texts.no.toUpperCase()}
           </Text>
-          <Toggle value={isOn} onPress={this.toggle} />
+          <Toggle
+            value={isOn}
+            onPress={this.toggle}
+            testID={testID}
+          />
           <Text style={yesStyle}>
             {texts.yes.toUpperCase()}
           </Text>

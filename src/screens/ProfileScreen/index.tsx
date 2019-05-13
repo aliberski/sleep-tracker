@@ -13,6 +13,7 @@ import { is } from 'helpers/index';
 import { IStoreState } from 'store/appReducer';
 import { profileActions } from 'modules/Profile/actions';
 import texts from 'constants/translations';
+import { app } from 'constants/testIDs';
 import style from './style';
 import { IProps, IState, ActivityType } from './types';
 
@@ -98,21 +99,27 @@ class ProfileScreen extends React.Component<
 
     return (
       <SafeView>
-        <View style={style.container}>
+        <View
+          style={style.container}
+          testID={app.profile.id}
+        >
           <KeyboardAwareWrapper>
             <TextInput
+              testID={app.profile.inputWeight}
               onChangeText={this.setWeight}
               value={weight}
               keyboardType='numeric'
               label={texts.profileLabelWeight}
             />
             <TextInput
+              testID={app.profile.inputHeight}
               onChangeText={this.setHeight}
               value={height}
               keyboardType='numeric'
               label={texts.profileLabelHeight}
             />
             <TextInput
+              testID={app.profile.inputAge}
               onChangeText={this.setAge}
               value={age}
               keyboardType='numeric'
@@ -126,11 +133,15 @@ class ProfileScreen extends React.Component<
             />
           </KeyboardAwareWrapper>
           {!!submitError && (
-            <Text style={style.formError}>
+            <Text
+              style={style.formError}
+              testID={app.profile.error}
+            >
               {submitError.toUpperCase()}
             </Text>
           )}
           <Button
+            testID={app.profile.buttonSubmit}
             onPress={this.submit}
             text={texts.save}
             isLoading={submitLoading}

@@ -1,7 +1,7 @@
 import { ActionTypes } from './actions';
 import { ISurveyData } from 'modules/Survey/types';
 
-type DataType = number[] | null;
+type DataType = number[] | [];
 
 export interface IStatisticsStoreState {
   mood: DataType;

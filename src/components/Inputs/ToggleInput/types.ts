@@ -4,6 +4,7 @@ export interface IProps {
   onChange: (isOn: boolean) => void;
   label: string;
   initialValue: boolean;
+  testID?: string;
 }
 
 export interface IState {

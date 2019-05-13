@@ -7,6 +7,7 @@ import KeyboardAwareWrapper from 'components/KeyboardAwareWrapper';
 import { TimeInput, ToggleInput } from 'components/Inputs';
 import Button from 'components/Button';
 
+import { app } from 'constants/testIDs';
 import texts from 'constants/translations';
 import { MoodTypes } from 'components/MoodSelector/types';
 import { IFormProps, IFormState } from './types';
@@ -91,26 +92,37 @@ class SurveyForm extends React.PureComponent<
               onChange={this.setMood}
             />
             <TimeInput
+              testID={app.survey.selectorSleepHour.button}
+              valueTestID={
+                app.survey.selectorSleepHour.value
+              }
               label={texts.surveyLabelSleep}
               value={sleepHour}
               onChange={this.setSleepHour}
             />
             <TimeInput
+              testID={app.survey.selectorWakeUpHour.button}
+              valueTestID={
+                app.survey.selectorWakeUpHour.value
+              }
               label={texts.surveyLabelWakeUp}
               value={wakeUpHour}
               onChange={this.setWakeUpHour}
             />
             <ToggleInput
+              testID={app.survey.toggleFood}
               onChange={this.setFood}
               initialValue={food}
               label={texts.surveyLabelFood}
             />
             <ToggleInput
+              testID={app.survey.toggleAlcohol}
               onChange={this.setAlcohol}
               initialValue={alcohol}
               label={texts.surveyLabelAlcohol}
             />
             <ToggleInput
+              testID={app.survey.toggleCaffeine}
               onChange={this.setCaffeine}
               initialValue={caffeine}
               label={texts.surveyLabelCaffeine}
@@ -118,6 +130,7 @@ class SurveyForm extends React.PureComponent<
           </View>
         </KeyboardAwareWrapper>
         <Button
+          testID={app.survey.buttonSubmit}
           onPress={this.submit}
           text={texts.save}
           isLoading={this.props.submitLoading}

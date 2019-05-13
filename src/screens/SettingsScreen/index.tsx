@@ -26,10 +26,15 @@ class SettingsScreen extends React.Component<IProps> {
   }
 
   public componentDidUpdate(prevProps: IProps) {
-    if (!prevProps.resetSuccess && this.props.resetSuccess) {
-      Alert.alert(texts.success, texts.settingsResetSuccess, [
-        { text: texts.ok, onPress: () => {} },
-      ]);
+    if (
+      !prevProps.resetSuccess &&
+      this.props.resetSuccess
+    ) {
+      Alert.alert(
+        texts.success,
+        texts.settingsResetSuccess,
+        [{ text: texts.ok, onPress: () => {} }],
+      );
     }
   }
 
@@ -53,7 +58,10 @@ class SettingsScreen extends React.Component<IProps> {
 
     return (
       <SafeView>
-        <View style={style.container} testID={app.settings.id}>
+        <View
+          style={style.container}
+          testID={app.settings.id}
+        >
           <View style={style.form}>
             <KeyboardAwareWrapper>
               <TextInput
@@ -64,6 +72,7 @@ class SettingsScreen extends React.Component<IProps> {
                 label={texts.settingsInputEmail}
               />
               <Button
+                testID={app.settings.buttonReset}
                 link
                 text={texts.settingsButtonReset}
                 onPress={this.onResetPress}

@@ -76,9 +76,10 @@ class Toggle extends React.PureComponent<IProps> {
   };
 
   public render() {
-    const { containerStyle } = this.props;
+    const { containerStyle, testID } = this.props;
     return (
       <TouchableOpacity
+        testID={testID}
         onPress={() => this.switch(false)}
         style={containerStyle}
       >

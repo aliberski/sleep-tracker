@@ -7,9 +7,10 @@ import Button from 'components/Button';
 import Modal from 'components/Modal';
 
 import texts from 'constants/translations';
+import { app } from 'constants/testIDs';
+import { IStoreState } from 'store/appReducer';
 import style from './style';
 import { IProps, IState } from './types';
-import { IStoreState } from 'store/appReducer';
 
 class DatePicker extends React.PureComponent<
   IProps,
@@ -37,11 +38,15 @@ class DatePicker extends React.PureComponent<
           style={style.header}
           onLayout={this.handleLayoutStatus}
         >
-          <Text style={style.title}>
+          <Text
+            style={style.title}
+            testID={app.datePicker.date}
+          >
             {this.props.selectedDay}
           </Text>
           <Button
             link
+            testID={app.datePicker.button}
             style={style.dateButton}
             onPress={this.toggleDateModal}
             text={texts.surveyChangeDateButton}

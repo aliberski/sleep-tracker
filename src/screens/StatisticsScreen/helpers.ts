@@ -25,7 +25,7 @@ export const getChartsData = (
     {
       title: texts.statisticsLabelHours,
       data: hours,
-      ticks: 24,
+      ticks: 12,
       height: ChartHeight.big,
       color: COLOR.charts.hours,
     },

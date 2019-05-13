@@ -34,7 +34,10 @@ const RegisterScreen = (props: IProps) => {
 
   return (
     <SafeView>
-      <View style={style.container} testID={auth.register.id}>
+      <View
+        style={style.container}
+        testID={auth.register.id}
+      >
         <View style={style.form}>
           <KeyboardAwareWrapper>
             <TextInput
@@ -61,7 +64,12 @@ const RegisterScreen = (props: IProps) => {
           </KeyboardAwareWrapper>
         </View>
         {!!formError && (
-          <Text style={style.formError}>{formError.toUpperCase()}</Text>
+          <Text
+            style={style.formError}
+            testID={auth.register.error}
+          >
+            {formError.toUpperCase()}
+          </Text>
         )}
         <Button
           testID={auth.register.buttonSubmit}

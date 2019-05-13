@@ -4,6 +4,7 @@ export interface IProps {
   value: boolean;
   onPress: () => void;
   containerStyle?: ViewStyle;
+  testID?: string;
 }
 
 export interface IStyle {

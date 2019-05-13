@@ -48,7 +48,7 @@ class MainScreen extends React.Component<IProps> {
   private renderTitle = () => (
     <Text style={style.title}>
       {texts.mainTitle}{' '}
-      <Text style={style.day}>
+      <Text style={style.day} testID={app.main.date}>
         {this.props.selectedDay}
       </Text>
     </Text>

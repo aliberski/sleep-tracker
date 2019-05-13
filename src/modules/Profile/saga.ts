@@ -11,6 +11,7 @@ import {
   IProfileFormRequest,
   IProfileFormPayload,
 } from './types';
+import { is } from 'helpers';
 
 const getProfile = async () => {
   const uid = getUid();
@@ -41,6 +42,15 @@ function* profileDataSaga(action: IProfileDataRequest) {
 const submitProfile = async (
   payload: IProfileFormPayload,
 ) => {
+  const { activity, age, weight, height } = payload;
+  if (
+    !is(activity) ||
+    !is(age) ||
+    !is(weight) ||
+    !is(height)
+  ) {
+    return texts.error;
+  }
   const uid = getUid();
   await firebase
     .database()

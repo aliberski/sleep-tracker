@@ -8,5 +8,7 @@ export const surveyFormDataSelector = (
   const {
     data: { surveyData },
   }: any = survey;
-  return selectedDay && surveyData[selectedDay];
+  return (
+    surveyData && selectedDay && surveyData[selectedDay]
+  );
 };

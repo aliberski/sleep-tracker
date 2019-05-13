@@ -54,12 +54,18 @@ const LoginScreen = (props: IProps) => {
               testID={auth.login.buttonRemind}
               link
               text={texts.loginButtonRemind}
-              onPress={navigate.bind(null, routes.REMIND_PASSWORD)}
+              onPress={navigate.bind(
+                null,
+                routes.REMIND_PASSWORD,
+              )}
             />
           </KeyboardAwareWrapper>
         </View>
         {!!formError && (
-          <Text style={style.formError}>
+          <Text
+            style={style.formError}
+            testID={auth.login.error}
+          >
             {formError.toUpperCase()}
           </Text>
         )}

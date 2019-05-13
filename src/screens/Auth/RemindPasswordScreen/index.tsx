@@ -44,7 +44,10 @@ const RemindPasswordScreen = (props: IProps) => {
 
   return (
     <SafeView>
-      <View style={style.container} testID={auth.remindPassword.id}>
+      <View
+        style={style.container}
+        testID={auth.remindPassword.id}
+      >
         <View style={style.form}>
           <KeyboardAwareWrapper>
             <TextInput
@@ -56,7 +59,10 @@ const RemindPasswordScreen = (props: IProps) => {
           </KeyboardAwareWrapper>
         </View>
         {!!formError && (
-          <Text style={style.formError}>
+          <Text
+            style={style.formError}
+            testID={auth.remindPassword.error}
+          >
             {formError.toUpperCase()}
           </Text>
         )}
@@ -75,7 +81,9 @@ RemindPasswordScreen.navigationOptions = {
   title: texts.remindTitle.toUpperCase(),
 };
 
-const mapStateToProps = ({ remindPassword }: IStoreState) => ({
+const mapStateToProps = ({
+  remindPassword,
+}: IStoreState) => ({
   isLoading: remindPassword.loading,
   formError: remindPassword.error,
   success: remindPassword.success,
@@ -84,7 +92,8 @@ const mapStateToProps = ({ remindPassword }: IStoreState) => ({
 const mapDispatchToProps = (dispatch: Dispatch<any>) =>
   bindActionCreators(
     {
-      remindPassword: remindPasswordActions.remindPasswordRequest,
+      remindPassword:
+        remindPasswordActions.remindPasswordRequest,
     },
     dispatch,
   );
