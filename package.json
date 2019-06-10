@@ -16,7 +16,6 @@
     "e2e:build": "detox build -c ios.sim.debug"
   },
   "dependencies": {
-    "axios": "0.18.0",
     "dot-prop": "5.0.0",
     "formik": "1.5.2",
     "moment": "2.24.0",
